@@ -190,11 +190,16 @@ body:not(.home) .site-header{background:rgba(6,16,39,.90);border-bottom-color:va
 .hamburger[aria-expanded="true"] .bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
 /* ── Mobile menu ───────────────────────────────────────────────────── */
+/* Closed, this panel still covers the whole viewport. Without visibility and
+   pointer-events it stays invisible but keeps catching every click meant for
+   the page underneath — and on desktop, where the hamburger is hidden, there
+   is no way to dismiss it. */
 .mobile-menu{
   position:fixed;inset:0;z-index:80;background:var(--navy-deep);
-  display:grid;place-items:center;opacity:0;transition:opacity .45s var(--ease);
+  display:grid;place-items:center;opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .45s var(--ease),visibility .45s var(--ease);
 }
-.mobile-menu.open{opacity:1}
+.mobile-menu.open{opacity:1;visibility:visible;pointer-events:auto}
 .mobile-menu-inner{text-align:center;padding:0 var(--gutter)}
 .mobile-menu-inner::before,.mobile-menu-inner::after{
   content:'';display:block;width:120px;height:1px;background:var(--brass-dim);margin:0 auto 34px;
@@ -367,10 +372,12 @@ body:not(.home) .site-header{background:rgba(6,16,39,.90);border-bottom-color:va
 .book-card-title a{transition:color .3s}
 .book-card-title a:hover{color:var(--brass-2)}
 .lang-pills{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+/* --muted-dim on the navy background measures 4.35:1, under the 4.5:1 floor,
+   and at 9.5px that is a chip nobody notices. --muted measures 7.5:1. */
 .lang-pill{
-  font-family:var(--display);font-weight:300;font-size:9.5px;
+  font-family:var(--display);font-weight:400;font-size:10px;
   letter-spacing:.2em;text-transform:uppercase;padding:6px 11px;
-  border:1px solid var(--line-soft);color:var(--muted-dim);transition:.3s;
+  border:1px solid var(--line);color:var(--muted);transition:.3s;
 }
 .lang-pill:hover{border-color:var(--brass);color:var(--brass-2)}
 .lang-pill.on{border-color:var(--brass);color:var(--navy);background:var(--brass)}
