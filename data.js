@@ -18,44 +18,44 @@ const authorData = {
     },
     "novels": [
         {
+            "id": "das-formular-zur-rettung-der-galaxie",
             "i18n": {
-                "de": {
-                    "cover": "images/de/DAS_FORMULAR_ZUR_RETTUNG_DER_GALAXIE_DE_cover.webp",
-                    "excerpt": "books/de/das-formular-zur-rettung-der-galaxie.md",
-                    "genre": "Humorous Science Fiction Space Opera",
-                    "synopsis": "synopsis/de/das-formular-zur-rettung-der-galaxie.txt",
-                    "title": "Das Formular zur Rettung der Galaxie"
-                },
                 "en": {
-                    "cover": "images/en/THE_FORM_FOR_SAVING_THE_GALAXY_EN_cover.webp",
-                    "excerpt": "books/en/das-formular-zur-rettung-der-galaxie.md",
+                    "title": "The Form for Saving the Galaxy",
                     "genre": "Humorous Science Fiction Space Opera",
+                    "cover": "images/en/THE_FORM_FOR_SAVING_THE_GALAXY_EN_cover.webp",
                     "synopsis": "synopsis/en/das-formular-zur-rettung-der-galaxie.txt",
-                    "title": "The Form for Saving the Galaxy"
+                    "excerpt": "books/en/das-formular-zur-rettung-der-galaxie.md"
+                },
+                "de": {
+                    "title": "Das Formular zur Rettung der Galaxie",
+                    "genre": "Humorous Science Fiction Space Opera",
+                    "cover": "images/de/DAS_FORMULAR_ZUR_RETTUNG_DER_GALAXIE_DE_cover.webp",
+                    "synopsis": "synopsis/de/das-formular-zur-rettung-der-galaxie.txt",
+                    "excerpt": "books/de/das-formular-zur-rettung-der-galaxie.md"
                 },
                 "fr": {
-                    "cover": "images/fr/Formulaire_de_sauvetage_galactique_FR_cover.webp",
-                    "excerpt": "books/fr/das-formular-zur-rettung-der-galaxie.md",
+                    "title": "Formulaire de sauvetage galactique",
                     "genre": "Humorous Science Fiction Space Opera",
+                    "cover": "images/fr/Formulaire_de_sauvetage_galactique_FR_cover.webp",
                     "synopsis": "synopsis/fr/das-formular-zur-rettung-der-galaxie.txt",
-                    "title": "Formulaire de sauvetage galactique"
+                    "excerpt": "books/fr/das-formular-zur-rettung-der-galaxie.md"
                 }
             },
-            "id": "das-formular-zur-rettung-der-galaxie",
             "links": [
                 {
-                    "lang": "EN",
                     "platform": "Draft2Digital",
+                    "lang": "EN",
                     "url": "https://books2read.com/u/3yqdZe"
                 },
                 {
-                    "lang": "DE",
                     "platform": "Draft2Digital",
+                    "lang": "DE",
                     "url": "https://books2read.com/u/bMkzZ5"
                 },
                 {
-                    "lang": "FR",
                     "platform": "Draft2Digital",
+                    "lang": "FR",
                     "url": "https://books2read.com/u/ba8Rwa"
                 }
             ]
@@ -65,114 +65,114 @@ const authorData = {
         {
             "books": [
                 {
-                    "id": "het-incident-met-de-tijdparkeermeter",
                     "i18n": {
-                        "en": {
-                            "title": "The Time Parking Meter Incident",
-                            "genre": "Humorous Cozy Fantasy Adventure",
-                            "cover": "images/en/The_Time_Parking_Meter_Incident.webp",
-                            "synopsis": "synopsis/en/het-incident-met-de-tijdparkeermeter.txt",
-                            "excerpt": "books/en/het-incident-met-de-tijdparkeermeter.md"
-                        },
                         "de": {
-                            "title": "Der Vorfall mit der Zeitparkuhr",
-                            "genre": "Ein humorvolles Wohlfühl-Fantasy-Abenteuer",
                             "cover": "images/de/Der-Vorfall-mit-der-Zeitparkuhr_-EL.webp",
+                            "excerpt": "books/de/het-incident-met-de-tijdparkeermeter.md",
+                            "genre": "Ein humorvolles Wohlfühl-Fantasy-Abenteuer",
                             "synopsis": "synopsis/de/het-incident-met-de-tijdparkeermeter.txt",
-                            "excerpt": "books/de/het-incident-met-de-tijdparkeermeter.md"
+                            "title": "Der Vorfall mit der Zeitparkuhr"
                         },
-                        "fr": {
-                            "title": "L'Incident du Parcmètre Temporel",
-                            "genre": "Une aventure de fantasy humoristique et cosy",
-                            "cover": "images/fr/LIncident_du_Parcmetre_Temporel_-EL-FR.webp",
-                            "synopsis": "synopsis/fr/het-incident-met-de-tijdparkeermeter.txt",
-                            "excerpt": "books/fr/het-incident-met-de-tijdparkeermeter.md"
-                        },
-                        "it": {
-                            "title": "L'Incidente del Parchimetro Temporale",
-                            "genre": "Un'avventura fantasy umoristica e accogliente",
-                            "cover": "images/it/LIncidente_del_Parchimetro_Temporale_-EL-IT.webp",
-                            "synopsis": "synopsis/it/het-incident-met-de-tijdparkeermeter.txt",
-                            "excerpt": "books/it/het-incident-met-de-tijdparkeermeter.md"
-                        },
-                        "nl": {
-                            "title": "Het Incident met de Tijdparkeermeter",
+                        "en": {
+                            "cover": "images/en/The_Time_Parking_Meter_Incident.webp",
+                            "excerpt": "books/en/het-incident-met-de-tijdparkeermeter.md",
                             "genre": "Humorous Cozy Fantasy Adventure",
-                            "cover": "images/nl/Het-Incident-met-de-Tijdparkeermeter-EL-NL.webp",
-                            "synopsis": "synopsis/nl/het-incident-met-de-tijdparkeermeter.txt",
-                            "excerpt": "books/nl/het-incident-met-de-tijdparkeermeter.md"
+                            "synopsis": "synopsis/en/het-incident-met-de-tijdparkeermeter.txt",
+                            "title": "The Time Parking Meter Incident"
                         },
                         "es": {
-                            "title": "El Incidente del Parquímetro Temporal",
-                            "genre": "Una aventura de fantasía de humor y cozy",
                             "cover": "images/es/El_incidente_del_parquimetro_temporal-EL-ES.webp",
+                            "excerpt": "books/es/het-incident-met-de-tijdparkeermeter.md",
+                            "genre": "Una aventura de fantasía de humor y cozy",
                             "synopsis": "synopsis/es/het-incident-met-de-tijdparkeermeter.txt",
-                            "excerpt": "books/es/het-incident-met-de-tijdparkeermeter.md"
+                            "title": "El Incidente del Parquímetro Temporal"
+                        },
+                        "fr": {
+                            "cover": "images/fr/LIncident_du_Parcmetre_Temporel_-EL-FR.webp",
+                            "excerpt": "books/fr/het-incident-met-de-tijdparkeermeter.md",
+                            "genre": "Une aventure de fantasy humoristique et cosy",
+                            "synopsis": "synopsis/fr/het-incident-met-de-tijdparkeermeter.txt",
+                            "title": "L'Incident du Parcmètre Temporel"
+                        },
+                        "it": {
+                            "cover": "images/it/LIncidente_del_Parchimetro_Temporale_-EL-IT.webp",
+                            "excerpt": "books/it/het-incident-met-de-tijdparkeermeter.md",
+                            "genre": "Un'avventura fantasy umoristica e accogliente",
+                            "synopsis": "synopsis/it/het-incident-met-de-tijdparkeermeter.txt",
+                            "title": "L'Incidente del Parchimetro Temporale"
+                        },
+                        "nl": {
+                            "cover": "images/nl/Het-Incident-met-de-Tijdparkeermeter-EL-NL.webp",
+                            "excerpt": "books/nl/het-incident-met-de-tijdparkeermeter.md",
+                            "genre": "Humorous Cozy Fantasy Adventure",
+                            "synopsis": "synopsis/nl/het-incident-met-de-tijdparkeermeter.txt",
+                            "title": "Het Incident met de Tijdparkeermeter"
                         },
                         "pt": {
-                            "title": "O Incidente do Parquímetro Temporal",
-                            "genre": "Uma aventura de fantasia aconchegante e bem-humorada",
                             "cover": "images/pt/O_Incidente_do_Parquimetro_Temporal-EL-PT.webp",
+                            "excerpt": "books/pt/het-incident-met-de-tijdparkeermeter.md",
+                            "genre": "Uma aventura de fantasia aconchegante e bem-humorada",
                             "synopsis": "synopsis/pt/het-incident-met-de-tijdparkeermeter.txt",
-                            "excerpt": "books/pt/het-incident-met-de-tijdparkeermeter.md"
+                            "title": "O Incidente do Parquímetro Temporal"
                         },
                         "se": {
-                            "title": "Incidenten med Tidsparkeringsmätaren",
-                            "genre": "Ett humoristiskt och mysigt fantasyäventyr",
                             "cover": "images/se/Incidenten_med_tidsparkeringsmataren-EL-SE.webp",
+                            "excerpt": "books/se/het-incident-met-de-tijdparkeermeter.md",
+                            "genre": "Ett humoristiskt och mysigt fantasyäventyr",
                             "synopsis": "synopsis/se/het-incident-met-de-tijdparkeermeter.txt",
-                            "excerpt": "books/se/het-incident-met-de-tijdparkeermeter.md"
+                            "title": "Incidenten med Tidsparkeringsmätaren"
                         }
                     },
+                    "id": "het-incident-met-de-tijdparkeermeter",
                     "links": [
                         {
-                            "platform": "Amazon",
                             "lang": "EN",
+                            "platform": "Amazon",
                             "url": "https://www.amazon.com/dp/B0GZF98QVK"
                         },
                         {
-                            "platform": "Amazon",
                             "lang": "DE",
+                            "platform": "Amazon",
                             "url": "https://www.amazon.de/dp/B0H1J3NKDR"
                         },
                         {
-                            "platform": "Draft2Digital",
                             "lang": "DE",
+                            "platform": "Draft2Digital",
                             "url": "https://books2read.com/u/bw5P8v"
                         },
                         {
-                            "platform": "Amazon",
                             "lang": "NL",
+                            "platform": "Amazon",
                             "url": "https://www.amazon.nl/dp/B0H23F9TDC"
                         },
                         {
-                            "platform": "Draft2Digital",
                             "lang": "NL",
+                            "platform": "Draft2Digital",
                             "url": "https://books2read.com/u/4Xy7V7"
                         },
                         {
-                            "platform": "Draft2Digital",
                             "lang": "FR",
+                            "platform": "Draft2Digital",
                             "url": "https://books2read.com/u/bQ0Z8v"
                         },
                         {
-                            "platform": "Draft2Digital",
                             "lang": "IT",
+                            "platform": "Draft2Digital",
                             "url": "https://books2read.com/u/bWnK7z"
                         },
                         {
-                            "platform": "Draft2Digital",
                             "lang": "ES",
+                            "platform": "Draft2Digital",
                             "url": "https://books2read.com/u/388Ro6"
                         },
                         {
-                            "platform": "Draft2Digital",
                             "lang": "PT",
+                            "platform": "Draft2Digital",
                             "url": "https://books2read.com/u/3kaAAL"
                         },
                         {
-                            "platform": "Draft2Digital",
                             "lang": "SE",
+                            "platform": "Draft2Digital",
                             "url": "https://books2read.com/u/mKZynZ"
                         }
                     ],
