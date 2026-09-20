@@ -1,0 +1,49 @@
+HOOFDSTUK 1 
+
+Quibbletown sliep nooit. Soms dommelde de stad even in, een kort dutje dat werd onderbroken door de knal van een onhandige spreuk of het geschreeuw van straatventers die "verse" magische toverdranken aanboden, die nauwelijks verhuld naar het riool stonken. De steegjes kronkelden als een labyrint, doorkruisten overvolle pleinen en omringden gebouwen die leken te zijn ontsproten aan een vlaag van magische koorts. De straatlantaarns, aangedreven door spreuken voor een eeuwige gloed, flikkerden op het ritme van de stemmingen van hun beheerders. Onder de kasseien zongen de waterstromen melancholische melodieën en de lucht was zwanger van de geur van aangebrand brood, statische elektriciteit en dat specifieke energetische mengsel dat bekendstond als "stadsmagie".
+In het middelpunt van deze georganiseerde chaos stond Wilfred "Willy" Spellburn — een jonge magiër met ambities die zijn capaciteiten aanzienlijk te boven gingen. Willy was lang, maar stond voorovergebogen alsof de wereld hem naar de grond drukte. Zijn warrige haar deed denken aan een nest waarin een duif een mislukt architectonisch experiment had uitgevoerd. Zijn gewaad, ooit donkerblauw, was vervaagd tot een ondefinieerbare tint "tovenaarsgrijs". Zijn sokken pasten, zoals gewoonlijk, niet bij elkaar — de linker was gestreept, de rechter geborduurd met kleine draakjes die pogingen deden om uit de stof te ontsnappen.
+Vandaag was de grote dag aangebroken.
+Ik zal bewijzen dat ik geen complete mislukking ben, hield hij zichzelf voor.
+Het Magiërsgilde — dat hooghartige instituut dat de regels in Quibbletown dicteerde — had hem een kans geboden. De taak leek eenvoudig: een spreuk voor de ruimtelijke optimalisatie van het parkeren.
+De stad ging gebukt onder verkeersopstoppingen van epische proporties. Karren, vliegende tapijten en zelfs per ongeluk tot leven gekomen standbeelden vochten om elke centimeter vrije ruimte. Burgers namen regelmatig hun toevlucht tot smeergeld, bedreigingen of kleine vloeken om een plekje te bemachtigen.
+Willy nam positie in op het centrale plein. Om hem heen verzamelden zich nieuwsgierige toeschouwers, een paar arrogante vertegenwoordigers van het Gilde en een verdacht groot aantal duiven dat de catastrofe leek voor te voelen. Aartsmagiër Velkor overschaduwde de rest — de gouden draden in zijn gewaden weerkaatsten het licht zo fel dat ze de vogels verblindden en kleine zonnen op de stenen schilderden. Velkor observeerde de jongeman met de blik van een rechter die het vonnis al heeft ondertekend en slechts wacht tot de vervelende formaliteit erop zit.
+De jongeman klemde een toverstaf vast — een goedkoop model van een marktkraampje, aangeprezen als "nauwelijks gebruikt". Het hout was lichtjes kromgetrokken en spuwde af en toe vonken die naar verbrande toast roken. Willy rechtte zijn rug en schraapte zijn keel.
+"Geachte dames en heren," begon hij, terwijl zijn stem trilde als de snaar van een ontstemde harp. "Vandaag zal ik u een spreuk tonen die het parkeren in Quibbletown voorgoed zal veranderen!"
+De menigte mompelde ongelovig.
+"Hopelijk is het beter dan die schoonmaakspreuk die mijn wasgoed in kikkers veranderde!" riep iemand achterin.
+Willy negeerde de opmerking. Hij hief zijn staf, sloot zijn ogen en begon de formule te reciteren. Hij had de hele nacht geoefend, hoewel hij rond middernacht op de bladzijden in slaap was gevallen en een spoor van kwijl had achtergelaten op het hoofdstuk 'Ruimtelijke Vervormingen'.
+"Parcus Maximus… Spatium Reducto…" prevelde hij, terwijl het instrument in zijn hand begon te trillen.
+De menigte hield haar adem in, in afwachting van iets imposants, of op zijn minst iets dat niemands hoed in brand zou steken.
+De eerste parkeerplek, omlijnd met lichtgevende verf, flikkerden. De kleuren wisselden abrupt — van blauw naar groen, totdat ze uiteindelijk bleven steken bij een verontrustend paars. Willy opende één oog. Dit behoorde absoluut niet tot het plan. Met een zachte plop, die deed denken aan het ontkurken van een fles belegen wijn, verdween de afgetekende rechthoek. De magie had de ruimtelijke barrière op de verkeerde plek doorbroken en in plaats van een kar materialiseerde er zich iets anders op het plein.
+Er verrees een trol voor hun neus. Reusachtig, met een huid als graniet en ogen die blonken als gepolijst kwarts. In de ene hand hield hij een logboek vast, in de andere een magisch potlood dat volstrekt belachelijk leek in zijn enorme knuist. De trol nam de aanwezigen in zich op, liet zijn blik op Willy rusten en bulderde met een stem als een neerstortende lawine:
+"Jij daar. Illegaal parkeren in De Rotsachtige Leegte. Boete: drie geiten of de tegenwaarde in magische kristallen."
+Er klonk een collectieve snik van verbazing. Iemand achterin hield het niet meer en giechelde.
+Willy knipperde met zijn ogen. Zijn zelfvertrouwen verdampte als water op een hete kookplaat.
+"Maar... het was alleen maar een pompoenenkar!"
+De trol fronste zijn stenen wenkbrauwen — het geluid deed denken aan verschuivend riviergrind.
+"Pompoenen? Dat betekent een extra heffing voor biologisch afval."
+Hij krabbelde iets in zijn notitieboekje en de menigte barstte in lachen uit. Een van de magiërs van het Gilde — een lange man met een baard die een eigen leven leek te leiden — schudde zijn hoofd en mompelde iets over een "generatie van amateurs". Velkor bewaarde het zwijgen, maar door de gouden draden van zijn gewaad schoot een vonk die leek op een verborgen glimlach.
+Het gezicht van Willy liep rood aan.
+"Wacht!" riep hij, terwijl hij in paniek met zijn staf zwaaide. "Ik zet het recht!"
+Een fatale fout. De toverstaf spuwde een vonkenregen uit die de naastgelegen parkeerplek raakte. Deze verdween met een scherpe knal en in plaats daarvan rees er een fontein op. Geen gewone fontein, maar een installatie die dikke chocoladesiroop braakte en een melodie zong die klonk als het volkslied van een vergeten dimensie.
+De menigte lachte niet meer. Ze brulde van enthousiasme. De duiven, die tot dat moment met een hooghartig stilzwijgen hadden toegekeken, stortten zich op de chocolade. Een van hen — een fors exemplaar met een ongewoon intelligente blik — streek neer naast Willy en kraste:
+"Dat grensde aan heroïek... als je onder heroïek tenminste verstaat dat je het plein in een interdimensionaal buffet verandert."
+Willy staarde hem verbijsterd aan.
+"Jij... praat?"
+"Natuurlijk praat ik," pofte de vogel zich op. "Ik ben Archibald, een voormalig magiër en het slachtoffer van een ongelukkig transmutatie-incident. Maar jij, jongen, hebt zojuist zelfs mijn grootste mislukkingen overtroffen. Gefeliciteerd."
+Voordat Willy kon antwoorden, kwam de trol met toenemende irritatie weer tussenbeide:
+"Nieuwe overtreding. Een fontein zonder de vereiste vergunning. Boete: vijf geiten of het equivalent in halfedelstenen."
+"Ik heb geen geiten!" gilde Willy, die voelde hoe de situatie hem volledig uit de hand liep.
+Hij zwaaide opnieuw met zijn staf in een wanhopige poging om een wonder te verrichten. Een derde parkeerplek verdampte. In plaats daarvan verscheen er een kleine draak, die tegelijkertijd verward en enigszins beledigd leek. Het beest ademde een zuil van vuur uit, stak de hoed van een van de hogemagiers in brand en het publiek applaudisseerde alsof het allemaal deel uitmaakte van de geplande show.
+"Genoeg!" De stem doorkliefde het tumult als een donderslag.
+Iedereen verstijfde. Zelfs de draak stopte met vuurspuwen en kantelde nieuwsgierig zijn kop. Uit de schaduwen stapte een figuur in een zwarte mantel, die het omgevingslicht leek op te slorpen. Een bleek gezicht, ogen als twee ijsbollen en een aura dat zelfs de duiven dwong om terug te deinzen. Het was Inquisiteur Grimble, leider van het Gilde van Parkeerinspecteurs — een organisatie die in Quibbletown meer angst inboezemde dan de meeste duistere magiërs.
+"Wilfred Spellburn," sprak Grimble met een stem die deed denken aan het dichtslaan van een stenen sarcofaag. "Jouw acties vormen een schending van artikel 47, paragraaf 3 van het Wetboek voor Stadsmagie: het ongeautoriseerd genereren van interdimensionale portalen. Je hebt tevens massale chaos op een openbaar plein veroorzaakt, hetgeen een overtreding is van artikel 12. En het allerbelangrijkste — je hebt de heilige wet van het parkeren met voeten getreden: neem nooit een plek in zonder de heffing te betalen."
+"Maar ik... het was niet mijn bedoeling..." stotterde Willy. Grimble stak zijn hand op en de woorden bleven steken in Willy's keel.
+"Je hebt drie dagen de tijd om deze puinhoop op te ruimen," vervolgde de inquisiteur. "Anders zal de stad sancties opleggen. En sancties, meneer Spellburn, zijn buitengewoon onaangenaam."
+Zijn glimlach was als een scheur in een gletsjer — koud en dreigend. Velkor maakte een nauwelijks merkbare buiging naar Grimble — een kort, formeel gebaar tussen collega's, niet tussen vijanden. Willy merkte daar niets van.
+Het plein stroomde snel leeg. De jongeman bleef alleen achter te midden van de trol, de draak, de zingende fontein en de pratende duif. De trol maakte nog steeds aantekeningen in zijn notitieboekje, de draak probeerde de chocoladesiroop op te likken en Archibald streek neer op zijn schouder.
+"Nou, jongen, dat was indrukwekkend. Wat nu?"
+Willy overzag de ravage en voelde hoe zijn maag zich tot een knoop samentrok.
+"Nu," prevelde hij met trillende stem, "denk ik dat ik behoefte heb aan hele sterke thee. En waarschijnlijk aan een nieuwe identiteit."
+Diep vanbinnen wist hij dat hij niet zou vluchten. Quibbletown was zijn thuis, en hij had het zojuist in een interdimensionale parkeerplaats veranderd. Als hij geen manier vond om de schade te herstellen, zou Grimble ervoor zorgen dat zijn leven ondraaglijk ingewikkeld werd.
+Ondertussen had het draakje de chocoladefontein ontdekt en zat het ernaar te staren met de uitdrukking van een wezen dat zojuist de zin van het bestaan had gevonden.

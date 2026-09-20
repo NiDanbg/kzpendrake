@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>K.Z. Pendrake — Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #0a1430;
+  --surface:  #101d42;
+  --surface-2:#0c1836;
+  --sidebar:  #050c1f;
+  --sid-text: #9aa6c4;
+  --sid-hover:#16274f;
+  --sid-act:  #c9a227;
+  --accent:   #c9a227;
+  --accent-d: #e8cf84;
+  --on-accent:#0a1430;
+  --danger:   #c86b7a;
+  --success:  #4fbf9a;
+  --border:   rgba(201,162,39,.22);
+  --text:     #f0e9d8;
+  --muted:    #9aa6c4;
+  --radius:   3px;
+  --header-h: 56px;
+}
+
+body { font-family: 'Jost', system-ui, -apple-system, sans-serif; font-size: 14px;
+       background: var(--bg); color: var(--text); height: 100vh; display: flex; flex-direction: column; }
+
+/* ── Header ── */
+header { height: var(--header-h); background: var(--sidebar); color: var(--sid-text);
+         display: flex; align-items: center; padding: 0 16px; gap: 16px; flex-shrink: 0; }
+.brand { font-weight: 500; font-size: 14px; letter-spacing: .22em; text-transform: uppercase;
+         color: #e8cf84; margin-right: 8px; white-space: nowrap; }
+.tab-nav { display: flex; gap: 4px; margin-left: auto; }
+.tab-btn { background: transparent; color: var(--sid-text); border: none; padding: 6px 14px;
+           border-radius: var(--radius); cursor: pointer; font-size: 13px; white-space: nowrap; }
+.tab-btn:hover { background: var(--sid-hover); }
+.tab-btn.active { background: var(--accent); color: var(--on-accent); }
+
+/* ── Tabs ── */
+.tab { display: none; flex: 1; overflow: hidden; }
+.tab.active { display: flex; }
+
+/* ── Two-panel layout ── */
+.two-panel { flex: 1; overflow: hidden; }
+.sidebar { width: 280px; min-width: 220px; background: var(--sidebar); color: var(--sid-text);
+           display: flex; flex-direction: column; overflow: hidden; flex-shrink: 0; }
+.sidebar-head { padding: 12px 14px; border-bottom: 1px solid rgba(201,162,39,.20); display: flex;
+                align-items: center; justify-content: space-between; gap: 8px; flex-shrink: 0; }
+.sidebar-head strong { color: var(--text); font-size: 13px; letter-spacing: .06em; }
+.sidebar-scroll { flex: 1; overflow-y: auto; }
+.sidebar-scroll::-webkit-scrollbar { width: 5px; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: #1d2f5e; border-radius: 3px; }
+
+.sb-group { padding: 10px 0 4px; }
+.sb-group-label { padding: 2px 14px 6px; font-size: 11px; text-transform: uppercase;
+                   letter-spacing: .8px; color: var(--muted); }
+.sb-item { padding: 7px 14px; cursor: pointer; display: flex; align-items: center;
+           gap: 8px; color: var(--sid-text); border-left: 3px solid transparent; }
+.sb-item:hover { background: var(--sid-hover); }
+.sb-item.active { background: var(--sid-hover); border-left-color: var(--accent); color: var(--text); }
+.sb-item .item-id { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden;
+                    text-overflow: ellipsis; }
+
+.editor-area { flex: 1; overflow-y: auto; padding: 24px; }
+
+/* ── Buttons ── */
+button { cursor: pointer; border: none; border-radius: var(--radius); font-size: 13px; }
+.btn { padding: 7px 14px; background: var(--accent); color: var(--on-accent); font-weight: 500;
+       letter-spacing: .08em; text-transform: uppercase; font-size: 12px; }
+.btn:hover { background: var(--accent-d); }
+.btn-sm { padding: 4px 10px; background: var(--accent); color: var(--on-accent); font-size: 11px;
+          letter-spacing: .06em; }
+.btn-sm:hover { background: var(--accent-d); }
+.btn-ghost { padding: 4px 10px; background: var(--sid-hover); color: var(--sid-text); font-size: 12px; }
+.btn-ghost:hover { background: #1d2f5e; }
+.btn-danger { padding: 7px 14px; background: var(--danger); color: var(--on-accent); }
+.btn-danger:hover { background: #b05666; }
+.btn-success { padding: 7px 14px; background: var(--success); color: var(--on-accent); }
+
+/* ── Forms ── */
+.card { background: var(--surface); border-radius: 8px; padding: 20px;
+        border: 1px solid var(--border); margin-bottom: 16px; }
+.card h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .6px;
+           color: var(--muted); margin-bottom: 14px; padding-bottom: 8px;
+           border-bottom: 1px solid var(--border); }
+.form-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.form-row label { width: 80px; min-width: 80px; color: var(--muted); font-size: 12px; }
+.form-row input, .form-row select, .form-row textarea {
+  flex: 1; padding: 6px 9px; border: 1px solid var(--border); border-radius: var(--radius);
+  font-size: 13px; font-family: inherit; background: var(--surface-2); }
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus {
+  outline: 2px solid var(--accent); border-color: transparent; background: var(--surface-2); }
+.form-row input[readonly] { background: #0b1633; color: var(--muted); }
+.book-ta { min-height: 120px; resize: vertical; }
+.path-row { display: flex; gap: 6px; flex: 1; }
+.path-row input { flex: 1; }
+.form-actions { display: flex; gap: 10px; margin-top: 20px; padding-top: 16px;
+                border-top: 1px solid var(--border); }
+
+/* ── Lang tabs ── */
+.lang-tabs { display: flex; gap: 4px; margin-bottom: 12px; flex-wrap: wrap; }
+.lang-tab { padding: 4px 10px; background: #16274f; color: var(--muted);
+            border-radius: var(--radius); font-size: 12px; font-weight: 600; }
+.lang-tab.active { background: var(--accent); color: var(--on-accent); }
+.lang-tab.has-data { background: rgba(201,162,39,.18); color: var(--accent-d); }
+.lang-tab.has-data.active { background: var(--accent); color: var(--on-accent); }
+.lang-panel { display: none; }
+.lang-panel.active { display: block; }
+
+/* ── Links editor ── */
+.link-row { display: flex; gap: 6px; align-items: center; margin-bottom: 6px; }
+.link-row select { width: 130px; flex-shrink: 0; padding: 5px 6px; border: 1px solid var(--border);
+                   border-radius: var(--radius); font-size: 12px; background: var(--surface-2); }
+.link-row .lnk-lang { width: 60px; }
+.link-row input { flex: 1; padding: 5px 8px; border: 1px solid var(--border);
+                  border-radius: var(--radius); font-size: 12px; }
+.link-row .remove-btn { padding: 4px 8px; background: rgba(200,107,122,.16); color: var(--danger);
+                        border-radius: var(--radius); font-size: 13px; }
+
+/* ── Direct sale (per language edition) ── */
+.ds-sep { border-top: 1px dashed var(--border); margin: 14px 0 10px; }
+.ds-fields.off { opacity: .45; pointer-events: none; }
+.ds-hint { font-size: 11px; color: var(--muted); margin: 2px 0 0 90px; }
+
+/* ── News ── */
+.news-item-row { display: flex; align-items: center; justify-content: space-between;
+                 padding: 8px 14px; border-bottom: 1px solid rgba(201,162,39,.20); cursor: pointer; }
+.news-item-row:hover { background: var(--sid-hover); }
+.news-item-row.active { background: var(--sid-hover); border-left: 3px solid var(--accent); }
+.news-item-row .fname { font-size: 12px; color: var(--sid-text); overflow: hidden;
+                         text-overflow: ellipsis; white-space: nowrap; }
+.news-item-row .del-btn { padding: 2px 6px; background: transparent; color: var(--danger); font-size: 12px; flex-shrink: 0; }
+
+.news-lang-tabs { display: flex; gap: 8px; margin-bottom: 12px; }
+.news-lang-btn { padding: 5px 14px; background: #16274f; color: var(--muted); border-radius: 20px; font-size: 12px; }
+.news-lang-btn.active { background: var(--accent); color: var(--on-accent); }
+textarea.md-editor { width: 100%; height: 300px; font-family: 'Courier New', monospace;
+                     font-size: 13px; resize: vertical; }
+
+/* ── Texts ── */
+.texts-wrap { max-width: 860px; }
+.text-controls { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; }
+.text-controls select { padding: 6px 10px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 13px; }
+textarea.text-editor { width: 100%; height: 280px; font-size: 13px; line-height: 1.6;
+                       resize: vertical; font-family: inherit; }
+
+/* ── Images ── */
+.img-controls { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
+.img-controls select { padding: 6px 10px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 13px; }
+.upload-zone { border: 2px dashed var(--border); border-radius: 8px; padding: 20px 24px;
+               display: flex; align-items: center; gap: 12px; background: var(--surface-2);
+               margin-bottom: 20px; }
+.img-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+.img-card { width: 140px; border: 1px solid var(--border); border-radius: var(--radius);
+            overflow: hidden; background: var(--surface); }
+.img-card img { width: 100%; height: 100px; object-fit: cover; display: block; }
+.img-card-foot { padding: 6px 8px; display: flex; align-items: center; justify-content: space-between; }
+.img-card-foot span { font-size: 11px; color: var(--muted); overflow: hidden;
+                      text-overflow: ellipsis; white-space: nowrap; max-width: 90px; }
+.copy-btn { padding: 2px 6px; background: #16274f; color: var(--muted); border-radius: 4px;
+            font-size: 11px; }
+.copy-btn:hover { background: var(--accent); color: var(--on-accent); }
+
+/* ── Image picker modal ── */
+#img-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5);
+             z-index: 1000; align-items: center; justify-content: center; }
+#img-modal.open { display: flex; }
+.modal-box { background: var(--surface); border-radius: 8px; width: 600px; max-height: 80vh;
+             display: flex; flex-direction: column; overflow: hidden; }
+.modal-head { padding: 14px 18px; border-bottom: 1px solid var(--border);
+              display: flex; justify-content: space-between; align-items: center; }
+.modal-head strong { font-size: 14px; }
+.modal-body { flex: 1; overflow-y: auto; padding: 16px; }
+.modal-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.modal-img { width: 110px; cursor: pointer; border: 2px solid transparent;
+             border-radius: var(--radius); overflow: hidden; }
+.modal-img:hover { border-color: var(--accent); }
+.modal-img img { width: 100%; height: 75px; object-fit: cover; display: block; }
+.modal-img span { font-size: 10px; color: var(--muted); display: block;
+                  padding: 3px 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ── Build tab ── */
+.build-log { background: #050c1f; color: #9aa6c4; font-family: 'Courier New', monospace;
+             font-size: 12px; padding: 16px; border-radius: 8px; white-space: pre-wrap;
+             max-height: 420px; overflow-y: auto; margin-top: 16px; }
+.build-status { font-size: 14px; font-weight: 600; margin-top: 12px; }
+.build-status.ok { color: var(--success); }
+.build-status.fail { color: var(--danger); }
+
+/* ── Toast ── */
+#toast { position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+         display: flex; flex-direction: column; gap: 8px; }
+.toast-item { padding: 10px 16px; border-radius: var(--radius); color: var(--on-accent);
+              font-size: 13px; animation: slide-in .2s ease; }
+.toast-item.success { background: var(--success); }
+.toast-item.error   { background: var(--danger); }
+@keyframes slide-in { from { transform: translateX(40px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+.placeholder { color: var(--muted); padding: 40px; text-align: center; }
+
+/* ── Dark-theme form defaults (deco palette) ── */
+input, select, textarea {
+  background: var(--surface-2); color: var(--text); border: 1px solid var(--border);
+  border-radius: var(--radius); font-family: inherit;
+}
+input::placeholder, textarea::placeholder { color: #5d6a8a; }
+input:focus, select:focus, textarea:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
+select option { background: var(--surface-2); color: var(--text); }
+.card { box-shadow: none; }
+.card h3 { color: var(--accent); letter-spacing: .22em; }
+.upload-zone { background: var(--surface-2); }
+.img-card { background: var(--surface); }
+.modal-box { background: var(--surface); border: 1px solid var(--border); }
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: var(--sidebar); }
+::-webkit-scrollbar-thumb { background: #1d2f5e; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+::selection { background: var(--accent); color: var(--on-accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">&#9670; K.Z. Pendrake — Admin</div>
+  <nav class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('books')">📚 Books</button>
+    <button class="tab-btn" onclick="switchTab('news')">📰 News</button>
+    <button class="tab-btn" onclick="switchTab('texts')">✏️ Texts</button>
+    <button class="tab-btn" onclick="switchTab('images')">🖼 Images</button>
+    <button class="tab-btn" onclick="switchTab('build')">🔨 Build</button>
+  </nav>
+</header>
+
+<!-- BOOKS TAB -->
+<div id="tab-books" class="tab active two-panel">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>Books</strong>
+      <div style="display:flex;gap:4px">
+        <button class="btn-ghost" onclick="openNewSeries()">+ Series</button>
+        <button class="btn-ghost" onclick="openNewBook('novel')">+ Novel</button>
+        <button class="btn-ghost" onclick="openNewBook('story')">+ Story</button>
+      </div>
+    </div>
+    <div class="sidebar-scroll" id="book-list"></div>
+  </aside>
+  <div class="editor-area">
+    <div id="book-editor"><div class="placeholder">← Select a book to edit, or create a new one</div></div>
+  </div>
+</div>
+
+<!-- NEWS TAB -->
+<div id="tab-news" class="tab two-panel">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <strong>News</strong>
+      <button class="btn-ghost" onclick="openNewArticle()">+ New</button>
+    </div>
+    <div class="sidebar-scroll" id="news-list"></div>
+  </aside>
+  <div class="editor-area">
+    <div id="news-editor"><div class="placeholder">← Select an article or create a new one</div></div>
+  </div>
+</div>
+
+<!-- TEXTS TAB -->
+<div id="tab-texts" class="tab" style="overflow-y:auto;padding:24px;">
+  <div class="texts-wrap">
+    <div class="card">
+      <h3>Edit Text File</h3>
+      <div class="text-controls">
+        <label>File:
+          <select id="txt-file" onchange="loadTextFile()">
+            <option value="">— select —</option>
+          </select>
+        </label>
+        <label>Language:
+          <select id="txt-lang" onchange="loadTextFile()">
+            <option value="bg">BG</option>
+            <option value="en">EN</option>
+          </select>
+        </label>
+      </div>
+      <textarea class="text-editor" id="txt-content" placeholder="File content will appear here..."></textarea>
+      <div class="form-actions">
+        <button class="btn" onclick="saveTextFile()">💾 Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- IMAGES TAB -->
+<div id="tab-images" class="tab" style="overflow-y:auto;padding:24px;">
+  <div class="card" style="max-width:900px">
+    <h3>Upload Image</h3>
+    <div class="img-controls">
+      <label>Language / Folder:
+        <select id="img-lang">
+          <option value="bg">bg</option>
+          <option value="en">en</option>
+          <option value="de">de</option>
+          <option value="fr">fr</option>
+          <option value="it">it</option>
+          <option value="nl">nl</option>
+          <option value="es">es</option>
+          <option value="pt">pt</option>
+          <option value="se">se</option>
+          <option value="common">common</option>
+        </select>
+      </label>
+      <div class="upload-zone">
+        <input type="file" id="img-file" accept="image/*" onchange="previewFile(this)">
+        <button class="btn" onclick="uploadImage()">⬆ Upload</button>
+        <span id="upload-status" style="color:var(--muted);font-size:12px"></span>
+      </div>
+    </div>
+    <h3 style="margin-top:8px">Uploaded Images</h3>
+    <div class="img-controls" style="margin-bottom:12px">
+      <label>Show folder:
+        <select id="view-lang" onchange="loadImageGrid()">
+          <option value="bg">bg</option>
+          <option value="en">en</option>
+          <option value="de">de</option>
+          <option value="fr">fr</option>
+          <option value="it">it</option>
+          <option value="nl">nl</option>
+          <option value="es">es</option>
+          <option value="pt">pt</option>
+          <option value="se">se</option>
+          <option value="common">common</option>
+        </select>
+      </label>
+    </div>
+    <div class="img-grid" id="img-grid"></div>
+  </div>
+</div>
+
+<!-- BUILD TAB -->
+<div id="tab-build" class="tab" style="overflow-y:auto;padding:24px;">
+  <div class="card" style="max-width:900px">
+    <h3>Rebuild static site</h3>
+    <p style="color:var(--muted);font-size:13px;margin-bottom:14px">
+      Regenerates <code>dist/</code> from the current data.js / synopsis / books / news / images,
+      for local preview only. Does not touch kzpendrake.com.
+    </p>
+    <button class="btn btn-success" onclick="runBuild()">🔨 Build Site</button>
+    <div id="build-status"></div>
+    <pre class="build-log" id="build-log" style="display:none"></pre>
+  </div>
+  <div class="card" style="max-width:900px">
+    <h3>Publish to kzpendrake.com</h3>
+    <p style="color:var(--muted);font-size:13px;margin-bottom:14px">
+      Commits and pushes everything to GitHub. This is what actually updates the live site —
+      GitHub then rebuilds and deploys it automatically (usually within a minute or two).
+    </p>
+    <button class="btn" style="background:var(--danger)" onclick="runPublish()">🚀 Publish to kzpendrake.com</button>
+    <div id="publish-status"></div>
+    <pre class="build-log" id="publish-log" style="display:none"></pre>
+  </div>
+</div>
+
+<!-- Image picker modal -->
+<div id="img-modal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <strong>Select Cover Image</strong>
+      <button onclick="closeImgModal()" style="background:none;font-size:18px;color:var(--muted)">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-grid" id="modal-grid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Save confirmation modal -->
+<div id="save-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:2000;align-items:center;justify-content:center">
+  <div style="background:var(--surface);border-radius:8px;padding:32px 40px;max-width:360px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,.2)">
+    <div style="font-size:44px;margin-bottom:12px">✅</div>
+    <h3 style="margin-bottom:8px;font-size:16px">Saved successfully!</h3>
+    <p id="save-modal-msg" style="color:var(--muted);margin-bottom:24px;font-size:13px"></p>
+    <button class="btn" onclick="closeSaveModal()" style="min-width:80px">OK</button>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════════
+const LANGS     = ['bg','en','de','fr','it','nl','es','pt','se'];
+const PLATFORMS = ['Amazon','Laterpress','Draft2Digital'];
+const BOOK_LANGS = LANGS; // all supported translation langs
+
+let S = {
+  authorData:      null,
+  activeTab:       'books',
+  editingMode:     null,    // 'book' | 'series'
+  editingBookId:   null,    // null = new book
+  editingSeriesId: null,    // null = new series
+  editingIsNew:    false,
+  activeLang:      'bg',
+  activeNewsFile:  null,
+  newsEditLang:    'bg',
+  imgModalCb:      null,    // callback when image picked
+  imgModalLang:    'bg',
+};
+
+let idManual        = false;  // true once user types in the ID field manually
+let pendingModalNew = false;  // tracks whether last save was a new-book save
+
+// ═══════════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════════
+async function init() {
+  const data = await api('/api/data');
+  if (data.error) {
+    toast(`⚠ Failed to load data.js: ${data.error}`, 'error');
+    S.authorData = null;
+    document.getElementById('book-list').innerHTML = '';
+    document.getElementById('book-editor').innerHTML =
+      `<div class="placeholder" style="color:var(--danger);padding:32px">
+         ⚠ Could not parse data.js.<br><br>
+         <code style="font-size:11px">${data.error}</code><br><br>
+         Fix the file manually, then refresh this page.
+       </div>`;
+    return;
+  }
+  S.authorData = data;
+  if (!S.authorData.featured) S.authorData.featured = [];
+  renderBookList();
+  document.getElementById('book-editor').innerHTML = '<div class="placeholder">← Select a book or ⭐ Featured to edit</div>';
+  await renderNewsList();
+  await renderTextsList();
+  loadImageGrid();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// TAB SWITCHING
+// ═══════════════════════════════════════════════════════════════
+async function switchTab(name) {
+  S.activeTab = name;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(`tab-${name}`).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    if (b.getAttribute('onclick').includes(`'${name}'`)) b.classList.add('active');
+  });
+  if (name === 'news')   await renderNewsList();
+  if (name === 'texts')  await renderTextsList();
+  if (name === 'images') loadImageGrid();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// BOOKS — LIST
+// ═══════════════════════════════════════════════════════════════
+function renderBookList() {
+  const d = S.authorData;
+
+  const featAct = S.editingMode === 'featured' ? ' active' : '';
+  let html = `<div style="padding:6px 8px;border-bottom:1px solid rgba(201,162,39,.20)">
+    <button class="sb-item${featAct}" style="width:100%;border-radius:4px;text-align:left;background:transparent"
+      onclick="openFeaturedEditor()">⭐ Featured Books on Homepage</button>
+  </div>`;
+
+  if (d.series && d.series.length) {
+    d.series.forEach(s => {
+      const sTitle = (s.i18n.en || s.i18n.bg || {}).title || s.id;
+      const sAct = S.editingMode === 'series' && S.editingSeriesId === s.id ? ' active' : '';
+      html += `<div class="sb-group">
+        <div class="sb-group-label" style="display:flex;justify-content:space-between;align-items:center;padding-right:8px">
+          <span>📚 ${esc(sTitle)}</span>
+          <button class="btn-ghost${sAct}" style="font-size:10px;padding:2px 6px;color:#94a3b8"
+            onclick="openSeriesEditor('${esc(s.id)}')">✏️</button>
+        </div>`;
+      (s.books || []).forEach(b => {
+        const bTitle = ((b.i18n.bg || b.i18n.en || {})).title || b.id;
+        const act = S.editingBookId === b.id ? ' active' : '';
+        html += `<div class="sb-item${act}" onclick="openBook('${esc(b.id)}')">
+          <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(bTitle)}</span>
+        </div>`;
+      });
+      html += `<div style="padding:4px 14px">
+        <button class="btn-ghost" style="width:100%;text-align:left;font-size:11px"
+          onclick="openNewSeriesBook('${esc(s.id)}')">+ Add to series</button>
+      </div></div>`;
+    });
+  }
+
+  if (d.novels && d.novels.length) {
+    html += `<div class="sb-group"><div class="sb-group-label">📖 Standalone Novels</div>`;
+    d.novels.forEach(b => {
+      const t = ((b.i18n.bg || b.i18n.en || {})).title || b.id;
+      const act = S.editingBookId === b.id ? ' active' : '';
+      html += `<div class="sb-item${act}" onclick="openBook('${esc(b.id)}')">${esc(t)}</div>`;
+    });
+    html += '</div>';
+  }
+
+  if (d.short_stories && d.short_stories.length) {
+    html += `<div class="sb-group"><div class="sb-group-label">📄 Short Stories</div>`;
+    d.short_stories.forEach(b => {
+      const t = ((b.i18n.bg || b.i18n.en || {})).title || b.id;
+      const act = S.editingBookId === b.id ? ' active' : '';
+      html += `<div class="sb-item${act}" onclick="openBook('${esc(b.id)}')">${esc(t)}</div>`;
+    });
+    html += '</div>';
+  }
+
+  document.getElementById('book-list').innerHTML = html || '<div class="placeholder" style="padding:20px">No books yet</div>';
+}
+
+// ═══════════════════════════════════════════════════════════════
+// BOOKS — OPEN EDITOR
+// ═══════════════════════════════════════════════════════════════
+function findBook(id) {
+  for (const b of (S.authorData.novels || []))
+    if (b.id === id) return { book: b, type: 'novel', seriesId: null };
+  for (const b of (S.authorData.short_stories || []))
+    if (b.id === id) return { book: b, type: 'story', seriesId: null };
+  for (const s of (S.authorData.series || []))
+    for (const b of (s.books || []))
+      if (b.id === id) return { book: b, type: 'series', seriesId: s.id };
+  return null;
+}
+
+async function openBook(id) {
+  const ref = findBook(id);
+  if (!ref) return;
+  S.editingMode    = 'book';
+  S.editingBookId  = id;
+  S.editingIsNew   = false;
+  S.activeLang     = 'bg';
+  const texts = await loadBookTexts(ref.book);
+  renderBookEditor(ref.book, ref.type, ref.seriesId, false, texts);
+  renderBookList();
+}
+
+async function loadBookTexts(book) {
+  const texts = {};  // { lang: { synopsis: '', excerpt: '' } }
+  const i18n  = book.i18n || {};
+  const fetches = [];
+  for (const [l, d] of Object.entries(i18n)) {
+    texts[l] = { synopsis: '', excerpt: '' };
+    if (d.synopsis) {
+      fetches.push(
+        api(`/api/content/${d.synopsis}`)
+          .then(r => { texts[l].synopsis = r.content || ''; })
+          .catch(() => {})
+      );
+    }
+    if (d.excerpt) {
+      fetches.push(
+        api(`/api/content/${d.excerpt}`)
+          .then(r => { texts[l].excerpt = r.content || ''; })
+          .catch(() => {})
+      );
+    }
+  }
+  await Promise.all(fetches);
+  return texts;
+}
+
+function openNewBook(type) {
+  S.editingMode    = 'book';
+  S.editingBookId  = null;
+  S.editingIsNew   = true;
+  S.activeLang     = 'bg';
+  idManual         = false;
+  renderBookEditor({ id: '', i18n: {}, links: [] }, type, null, true, {});
+}
+
+function openNewSeriesBook(seriesId) {
+  S.editingMode    = 'book';
+  S.editingBookId  = null;
+  S.editingIsNew   = true;
+  S.activeLang     = 'bg';
+  idManual         = false;
+  renderBookEditor({ id: '', i18n: {}, links: [] }, 'series', seriesId, true, {});
+}
+
+// ═══════════════════════════════════════════════════════════════
+// BOOKS — RENDER EDITOR
+// ═══════════════════════════════════════════════════════════════
+function renderBookEditor(book, type, seriesId, isNew, texts) {
+  texts = texts || {};
+  const i18n  = book.i18n  || {};
+  const links = book.links || [];
+
+  const typeOpts = [
+    `<option value="novel"  ${type==='novel'  ?'selected':''}>Standalone Novel</option>`,
+    `<option value="story"  ${type==='story'  ?'selected':''}>Short Story</option>`,
+    ...(S.authorData.series||[]).map(s => {
+      const st = (s.i18n.en || s.i18n.bg || {}).title || s.id;
+      return `<option value="series:${esc(s.id)}" ${type==='series'&&seriesId===s.id?'selected':''}>${esc(st)}</option>`;
+    })
+  ].join('');
+
+  const langTabs = BOOK_LANGS.map(l => {
+    const hasData = i18n[l] && i18n[l].title;
+    const active  = l === S.activeLang ? ' active' : '';
+    const filled  = hasData && l !== S.activeLang ? ' has-data' : '';
+    return `<button class="lang-tab${active}${filled}" data-lang="${l}"
+              onclick="switchBookLang('${l}')">${l.toUpperCase()}</button>`;
+  }).join('');
+
+  const langPanels = BOOK_LANGS.map(l => {
+    const d  = i18n[l]    || {};
+    const tx = texts[l]   || {};
+    const active = l === S.activeLang ? ' active' : '';
+    return `<div class="lang-panel${active}" id="blp-${l}">
+      ${d.title ? `<div class="form-row" style="justify-content:flex-end">
+        <button type="button" class="btn-danger btn-sm" onclick="deleteBookTranslation('${l}')">🗑 Delete ${l.toUpperCase()} translation</button>
+      </div>` : ''}
+      <div class="form-row"><label>Title</label>
+        <input id="bt-${l}" value="${esc(d.title||'')}" oninput="autoFillId()"></div>
+      <div class="form-row"><label>Genre</label>
+        <input id="bg-${l}" value="${esc(d.genre||'')}"></div>
+      <div class="form-row"><label>Published</label>
+        <input id="bpub-${l}" value="${esc(d.published||'')}" placeholder="2026-03-14 or just 2026"></div>
+      <div class="form-row"><label>Publisher</label>
+        <input id="bpubr-${l}" value="${esc(d.publisher||'')}" placeholder="Publishing house of this edition"></div>
+      <div class="form-row"><label>ISBN</label>
+        <input id="bisbn-${l}" value="${esc(d.isbn||'')}" placeholder="978-…"></div>
+      <div class="ds-hint">Release date, publisher and ISBN of the ${l.toUpperCase()} edition. Shown on the page and read by search engines and AI assistants. Leave blank if unknown.</div>
+      <div class="form-row"><label>Cover</label>
+        <div class="path-row">
+          <input id="bc-${l}" value="${esc(d.cover||'')}">
+          <button class="btn-sm" onclick="browseAndUpload('${l}', 'bc-${l}')">📁 Browse</button>
+          <button class="btn-sm" style="background:#16274f;color:var(--muted)" onclick="openImgModal('${l}', 'bc-${l}')">🖼 Gallery</button>
+        </div></div>
+      <div class="form-row" style="align-items:flex-start">
+        <label style="padding-top:6px">Synopsis</label>
+        <textarea class="book-ta" id="bs-${l}" placeholder="Book synopsis...">${esc(tx.synopsis||'')}</textarea>
+      </div>
+      <div class="form-row" style="align-items:flex-start">
+        <label style="padding-top:6px">Excerpt</label>
+        <textarea class="book-ta" id="be-${l}" placeholder="Chapter excerpt (Markdown)...">${esc(tx.excerpt||'')}</textarea>
+      </div>
+      <div class="form-row">
+        <label>Free Gift</label>
+        <div style="display:flex;align-items:center;gap:6px">
+          <input type="checkbox" id="lme-${l}" ${d.leadMagnet?.enabled ? 'checked' : ''}
+            style="width:auto">
+          <span style="color:var(--muted);font-size:12px">Show lead-magnet banner for this book/language</span>
+        </div>
+      </div>
+      <div class="form-row" style="align-items:flex-start">
+        <label style="padding-top:6px">Gift Text</label>
+        <textarea class="book-ta" id="lmt-${l}" placeholder="e.g. Get a free bonus story from this world...">${esc(d.leadMagnet?.bannerText || '')}</textarea>
+      </div>
+      <div class="form-row"><label>Gift Image</label>
+        <div class="path-row">
+          <input id="lmi-${l}" value="${esc(d.leadMagnet?.image || '')}">
+          <button class="btn-sm" onclick="browseAndUpload('${l}', 'lmi-${l}')">📁 Browse</button>
+          <button class="btn-sm" style="background:#16274f;color:var(--muted)" onclick="openImgModal('${l}', 'lmi-${l}')">🖼 Gallery</button>
+        </div></div>
+      <div class="form-row"><label>Sender.net Embedded Form ID</label>
+        <input id="lmf-${l}" value="${esc(d.leadMagnet?.senderFormId || '')}" placeholder="data-sender-form-id from the Embedded form's code"></div>
+      <div class="ds-sep"></div>
+      <div class="form-row">
+        <label>Direct Sale</label>
+        <div style="display:flex;align-items:center;gap:6px">
+          <input type="checkbox" id="dsa-${l}" ${d.direct_sale_active ? 'checked' : ''}
+            style="width:auto" onchange="toggleDirectSale('${l}')">
+          <span style="color:var(--muted);font-size:12px">Sell the ${l.toUpperCase()} edition directly (Creem)</span>
+        </div>
+      </div>
+      <div class="ds-fields${d.direct_sale_active ? '' : ' off'}" id="dsf-${l}">
+        <div class="form-row"><label>Price</label>
+          <input id="dsp-${l}" value="${esc(d.price == null ? '' : String(d.price))}" placeholder="9.99"></div>
+        <div class="form-row"><label>Checkout</label>
+          <input id="dsu-${l}" value="${esc(d.creem_checkout_url || '')}"
+            placeholder="https://www.creem.io/payment/prod_..."></div>
+        <div class="ds-hint">Every language is its own Creem product — paste this edition's own checkout link.</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  const linksHtml = links.map((lk, i) => renderLinkRow(lk, i)).join('');
+
+  document.getElementById('book-editor').innerHTML = `
+    <div class="card">
+      <h3>${isNew ? 'New Book' : 'Edit Book'}</h3>
+      <div class="form-row">
+        <label>ID</label>
+        <input id="bid" value="${esc(book.id||'')}" placeholder="e.g. my-book-title"
+          ${isNew ? 'oninput="idManual=true"' : 'readonly'}>
+      </div>
+      <div class="form-row">
+        <label>Book no.</label>
+        <input id="bpos" value="${esc(book.position == null ? '' : String(book.position))}"
+          placeholder="1, 2, 3 — position in the series (leave blank if standalone)"></div>
+      <div class="form-row">
+        <label>Category</label>
+        <select id="btype">${typeOpts}</select>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Language Data</h3>
+      <div class="lang-tabs">${langTabs}</div>
+      <div id="book-lang-panels">${langPanels}</div>
+    </div>
+    <div class="card">
+      <h3>Purchase Links</h3>
+      <div id="links-editor">${linksHtml}</div>
+      <button class="btn-sm" style="margin-top:6px" onclick="addLinkRow()">+ Add link</button>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-success" onclick="saveBook()">💾 Save</button>
+      ${!isNew ? `<button class="btn-danger" onclick="deleteBook('${esc(book.id)}')">🗑 Delete</button>` : ''}
+    </div>`;
+}
+
+function toggleDirectSale(lang) {
+  const on = document.getElementById(`dsa-${lang}`).checked;
+  document.getElementById(`dsf-${lang}`).classList.toggle('off', !on);
+}
+
+function renderLinkRow(lk, i) {
+  const platOpts = PLATFORMS.map(p =>
+    `<option ${lk.platform===p?'selected':''}>${p}</option>`).join('');
+  const langOpts = ['BG','EN','DE','FR','IT','NL','ES','PT','SE'].map(l =>
+    `<option ${(lk.lang||'').toUpperCase()===l?'selected':''}>${l}</option>`).join('');
+  return `<div class="link-row" id="lr-${i}">
+    <select class="lnk-platform">${platOpts}</select>
+    <select class="lnk-lang">${langOpts}</select>
+    <input class="lnk-url" value="${esc(lk.url||'')}" placeholder="https://...">
+    <button class="remove-btn" onclick="removeLinkRow(this)">✕</button>
+  </div>`;
+}
+
+function addLinkRow() {
+  const container = document.getElementById('links-editor');
+  const i = container.children.length;
+  container.insertAdjacentHTML('beforeend', renderLinkRow({}, i));
+}
+function removeLinkRow(btn) { btn.closest('.link-row').remove(); }
+
+function switchBookLang(lang) {
+  S.activeLang = lang;
+  document.querySelectorAll('.lang-tab').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+  document.querySelectorAll('.lang-panel').forEach(p => {
+    p.classList.toggle('active', p.id === `blp-${lang}`);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// BOOKS — SAVE / DELETE
+// ═══════════════════════════════════════════════════════════════
+async function saveBook() {
+  if (!S.authorData || !S.authorData.meta) {
+    toast('⚠ Author data not loaded — refresh the page before saving', 'error'); return;
+  }
+  const id = document.getElementById('bid').value.trim();
+  if (!id) { toast('Book ID is required', 'error'); return; }
+
+  // Direct sale (Creem) — each language edition is its own product
+  const ds = {};
+  for (const l of BOOK_LANGS) {
+    const box = document.getElementById(`dsa-${l}`);
+    if (!box) continue;
+    const active = box.checked;
+    const price  = document.getElementById(`dsp-${l}`).value.trim().replace(',', '.');
+    const url    = document.getElementById(`dsu-${l}`).value.trim();
+    if (!active && !price && !url) continue;
+    const L = l.toUpperCase();
+    if (!document.getElementById(`bt-${l}`)?.value?.trim()) {
+      toast(`${L}: add a title before setting up direct sale`, 'error'); switchBookLang(l); return;
+    }
+    if (price && !/^\d+(\.\d{1,2})?$/.test(price)) {
+      toast(`${L}: price must be a number — e.g. 9.99`, 'error'); switchBookLang(l); return;
+    }
+    if (url && !/^https:\/\//i.test(url)) {
+      toast(`${L}: checkout URL must start with https://`, 'error'); switchBookLang(l); return;
+    }
+    if (active && (!price || !url)) {
+      toast(`${L}: direct sale needs both a price and a checkout URL`, 'error'); switchBookLang(l); return;
+    }
+    ds[l] = { active, price, url };
+  }
+
+  const wasNew = S.editingIsNew;
+  const oldRef = S.editingIsNew ? null : findBook(S.editingBookId || id);
+
+  // Position in the series — a plain number or nothing at all
+  const posRaw = document.getElementById('bpos')?.value?.trim() || '';
+  if (posRaw && !/^\d{1,3}$/.test(posRaw)) {
+    toast('Book no. must be a whole number — e.g. 1', 'error'); return;
+  }
+
+  const i18n      = {};
+  const textSaves = [];
+  for (const l of BOOK_LANGS) {
+    const title = document.getElementById(`bt-${l}`)?.value?.trim();
+    if (title) {
+      i18n[l] = { title };
+      const genre   = document.getElementById(`bg-${l}`)?.value?.trim();
+      const cover   = document.getElementById(`bc-${l}`)?.value?.trim();
+      const synTxt  = document.getElementById(`bs-${l}`)?.value?.trim();
+      const excTxt  = document.getElementById(`be-${l}`)?.value?.trim();
+      const oldLang = oldRef?.book?.i18n?.[l];
+      if (genre) i18n[l].genre = genre;
+      if (cover) i18n[l].cover = cover;
+      const published = document.getElementById(`bpub-${l}`)?.value?.trim();
+      const publisher = document.getElementById(`bpubr-${l}`)?.value?.trim();
+      const isbn      = document.getElementById(`bisbn-${l}`)?.value?.trim();
+      if (published) i18n[l].published = published;
+      if (publisher) i18n[l].publisher = publisher;
+      if (isbn)      i18n[l].isbn = isbn;
+      const lmEnabled = document.getElementById(`lme-${l}`)?.checked;
+      const lmText     = document.getElementById(`lmt-${l}`)?.value?.trim();
+      const lmImage    = document.getElementById(`lmi-${l}`)?.value?.trim();
+      const lmFormId   = document.getElementById(`lmf-${l}`)?.value?.trim();
+      if (lmEnabled || lmText || lmImage || lmFormId) {
+        i18n[l].leadMagnet = {
+          enabled: !!lmEnabled,
+          bannerText: lmText || '',
+          image: lmImage || '',
+          senderFormId: lmFormId || '',
+        };
+      }
+      if (ds[l]) {
+        i18n[l].direct_sale_active = ds[l].active;
+        if (ds[l].price) i18n[l].price = ds[l].price;
+        if (ds[l].url)   i18n[l].creem_checkout_url = ds[l].url;
+      }
+      if (synTxt) {
+        const synPath = oldLang?.synopsis || `synopsis/${l}/${id}.txt`;
+        i18n[l].synopsis = synPath;
+        textSaves.push(api(`/api/content/${synPath}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ content: synTxt })
+        }));
+      }
+      if (excTxt) {
+        const excPath = oldLang?.excerpt || `books/${l}/${id}.md`;
+        i18n[l].excerpt = excPath;
+        textSaves.push(api(`/api/content/${excPath}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ content: excTxt })
+        }));
+      }
+    }
+  }
+  if (!Object.keys(i18n).length) { toast('Add at least one language', 'error'); return; }
+
+  if (textSaves.length) await Promise.all(textSaves);
+
+  const links = [];
+  document.querySelectorAll('#links-editor .link-row').forEach(row => {
+    const platform = row.querySelector('.lnk-platform').value;
+    const lang     = row.querySelector('.lnk-lang').value;
+    const url      = row.querySelector('.lnk-url').value.trim();
+    if (url) links.push({ platform, lang, url });
+  });
+
+  const book = { id, i18n, links };
+  if (posRaw) book.position = parseInt(posRaw, 10);
+
+  const typeVal = document.getElementById('btype').value;
+  let type = typeVal, seriesId = null;
+  if (typeVal.startsWith('series:')) { type = 'series'; seriesId = typeVal.slice(7); }
+
+  if (oldRef) {
+    replaceBook(S.editingBookId, book, type, seriesId, oldRef);
+  } else {
+    if (type === 'novel') {
+      S.authorData.novels = S.authorData.novels || [];
+      S.authorData.novels.push(book);
+    } else if (type === 'story') {
+      S.authorData.short_stories = S.authorData.short_stories || [];
+      S.authorData.short_stories.push(book);
+    } else {
+      const s = S.authorData.series.find(s => s.id === seriesId);
+      if (s) { s.books = s.books || []; s.books.push(book); }
+    }
+  }
+
+  S.editingBookId = id;
+  S.editingIsNew  = false;
+
+  const res = await api('/api/data', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(S.authorData)
+  });
+
+  if (res.ok) {
+    renderBookList();
+    showSaveModal(wasNew);
+  } else {
+    toast('Save error: ' + (res.error || '?'), 'error');
+  }
+}
+
+function replaceBook(oldId, newBook, newType, newSeriesId, oldRef) {
+  if (oldRef.type === 'novel') {
+    S.authorData.novels = S.authorData.novels.filter(b => b.id !== oldId);
+  } else if (oldRef.type === 'story') {
+    S.authorData.short_stories = S.authorData.short_stories.filter(b => b.id !== oldId);
+  } else {
+    const s = S.authorData.series.find(s => s.id === oldRef.seriesId);
+    if (s) s.books = s.books.filter(b => b.id !== oldId);
+  }
+  if (newType === 'novel') {
+    S.authorData.novels.push(newBook);
+  } else if (newType === 'story') {
+    S.authorData.short_stories.push(newBook);
+  } else {
+    const s = S.authorData.series.find(s => s.id === newSeriesId);
+    if (s) s.books.push(newBook);
+  }
+}
+
+function deleteBook(id) {
+  if (!confirm(`Delete "${id}"?`)) return;
+  const ref = findBook(id);
+  if (!ref) return;
+  if (ref.type === 'novel') S.authorData.novels = S.authorData.novels.filter(b => b.id !== id);
+  else if (ref.type === 'story') S.authorData.short_stories = S.authorData.short_stories.filter(b => b.id !== id);
+  else {
+    const s = S.authorData.series.find(s => s.id === ref.seriesId);
+    if (s) s.books = s.books.filter(b => b.id !== id);
+  }
+  S.editingBookId = null;
+  document.getElementById('book-editor').innerHTML = '<div class="placeholder">Book deleted</div>';
+  saveData(() => renderBookList());
+}
+
+function deleteBookTranslation(lang) {
+  const id = S.editingBookId;
+  const ref = id ? findBook(id) : null;
+  if (!ref || !ref.book.i18n[lang]) return;
+  if (Object.keys(ref.book.i18n).length <= 1) {
+    toast('This is the only translation left — use "Delete" to remove the whole book instead', 'error');
+    return;
+  }
+  if (!confirm(`Delete the ${lang.toUpperCase()} translation of "${id}"?`)) return;
+  delete ref.book.i18n[lang];
+  saveData(() => { renderBookList(); openBook(id); });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// NEWS
+// ═══════════════════════════════════════════════════════════════
+async function renderNewsList() {
+  const files = await api('/api/news');
+  const cont = document.getElementById('news-list');
+  if (!files.length) {
+    cont.innerHTML = '<div class="placeholder" style="padding:16px">No articles yet</div>';
+    return;
+  }
+  cont.innerHTML = [...files].reverse().map(f => {
+    const act = S.activeNewsFile === f ? ' active' : '';
+    return `<div class="news-item-row${act}" onclick="openArticle('${esc(f)}')">
+      <span class="fname">${esc(f)}</span>
+      <button class="del-btn" onclick="deleteArticle(event,'${esc(f)}')">✕</button>
+    </div>`;
+  }).join('');
+}
+
+async function openArticle(filename) {
+  S.activeNewsFile = filename;
+  renderNewsList();
+  const [bgData, enData] = await Promise.all([
+    api(`/api/news/bg/${filename}`),
+    api(`/api/news/en/${filename}`)
+  ]);
+  renderNewsEditor(filename, bgData.content, enData.content, false);
+}
+
+function openNewArticle() {
+  S.activeNewsFile = null;
+  const today = new Date().toISOString().slice(0, 10);
+  const slug = prompt('Article slug (e.g. "new-book-announcement"):');
+  if (!slug) return;
+  const filename = `${today}-${slug.toLowerCase().replace(/\s+/g,'-')}.md`;
+  const tmpl = (lang) => `---\ntitle: ""\nauthor: ""\n---\n\n`;
+  renderNewsEditor(filename, tmpl('bg'), tmpl('en'), true);
+}
+
+function renderNewsEditor(filename, bgContent, enContent, isNew) {
+  document.getElementById('news-editor').innerHTML = `
+    <div class="card">
+      <h3>${isNew ? 'New Article' : 'Edit Article'}</h3>
+      <div class="form-row"><label>Filename</label>
+        <input id="news-fname" value="${esc(filename)}" ${isNew?'':'readonly'}>
+      </div>
+      <div class="news-lang-tabs">
+        <button class="news-lang-btn active" onclick="switchNewsLang('bg',this)">BG</button>
+        <button class="news-lang-btn" onclick="switchNewsLang('en',this)">EN</button>
+      </div>
+      <div id="news-bg"><textarea class="md-editor" id="news-content-bg">${esc(bgContent)}</textarea></div>
+      <div id="news-en" style="display:none"><textarea class="md-editor" id="news-content-en">${esc(enContent)}</textarea></div>
+      <p style="font-size:11px;color:var(--muted);margin-top:6px">
+        Format: <code>---<br>title: "Title"<br>author: "Name"<br>---<br><br>Content in Markdown...</code>
+      </p>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-success" onclick="saveArticle()">💾 Save</button>
+      ${!isNew ? `<button class="btn-danger" onclick="deleteArticle(null,'${esc(filename)}')">🗑 Delete</button>` : ''}
+    </div>`;
+}
+
+function switchNewsLang(lang, btn) {
+  S.newsEditLang = lang;
+  document.querySelectorAll('.news-lang-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('news-bg').style.display = lang === 'bg' ? '' : 'none';
+  document.getElementById('news-en').style.display = lang === 'en' ? '' : 'none';
+}
+
+async function saveArticle() {
+  const fname = document.getElementById('news-fname').value.trim();
+  const bgContent = document.getElementById('news-content-bg').value;
+  const enContent = document.getElementById('news-content-en').value;
+  if (!fname) { toast('Filename required', 'error'); return; }
+  const res = await api('/api/news', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ filename: fname, content: { bg: bgContent, en: enContent } })
+  });
+  if (res.ok) {
+    S.activeNewsFile = fname;
+    toast('Article saved ✓', 'success');
+    renderNewsList();
+  } else {
+    toast('Error saving article', 'error');
+  }
+}
+
+async function deleteArticle(evt, filename) {
+  if (evt) evt.stopPropagation();
+  if (!confirm(`Delete "${filename}"?`)) return;
+  await api(`/api/news/${filename}`, { method: 'DELETE' });
+  S.activeNewsFile = null;
+  document.getElementById('news-editor').innerHTML = '<div class="placeholder">Article deleted</div>';
+  toast('Article deleted', 'success');
+  renderNewsList();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// TEXTS
+// ═══════════════════════════════════════════════════════════════
+async function renderTextsList() {
+  const files = await api('/api/texts');
+  const sel = document.getElementById('txt-file');
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">— select —</option>' +
+    files.map(f => `<option value="${f.file}" data-lang="${f.lang}">${f.lang.toUpperCase()} — ${f.file}</option>`).join('');
+  if (cur) sel.value = cur;
+}
+
+async function loadTextFile() {
+  const sel  = document.getElementById('txt-file');
+  const file = sel.value;
+  if (!file) return;
+  const lang = document.getElementById('txt-lang').value;
+  const r    = await api(`/api/text/${lang}/${file}`);
+  document.getElementById('txt-content').value = r.content || '';
+}
+
+async function saveTextFile() {
+  const file = document.getElementById('txt-file').value;
+  const lang = document.getElementById('txt-lang').value;
+  const content = document.getElementById('txt-content').value;
+  if (!file) { toast('Select a file first', 'error'); return; }
+  const r = await api(`/api/text/${lang}/${file}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ content })
+  });
+  if (r.ok) toast('Saved ✓', 'success');
+  else toast('Save failed', 'error');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// IMAGES
+// ═══════════════════════════════════════════════════════════════
+async function loadImageGrid() {
+  const lang = document.getElementById('view-lang').value;
+  const files = await api(`/api/images/${lang}`);
+  document.getElementById('img-grid').innerHTML = files.length
+    ? files.map(f => {
+        const path = `images/${lang}/${f}`;
+        return `<div class="img-card">
+          <img src="/${path}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22100%22><rect fill=%22%23e2e8f0%22 width=%22140%22 height=%22100%22/><text x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%2394a3b8%22>?</text></svg>'">
+          <div class="img-card-foot">
+            <span title="${esc(path)}">${esc(f)}</span>
+            <button class="copy-btn" onclick="copyPath('${esc(path)}')">📋</button>
+          </div>
+        </div>`;
+      }).join('')
+    : '<p style="color:var(--muted)">No images in this folder</p>';
+}
+
+async function uploadImage() {
+  const fileInput = document.getElementById('img-file');
+  const lang = document.getElementById('img-lang').value;
+  if (!fileInput.files.length) { toast('Choose a file first', 'error'); return; }
+  const formData = new FormData();
+  formData.append('file', fileInput.files[0]);
+  const status = document.getElementById('upload-status');
+  status.textContent = 'Uploading...';
+  try {
+    const res = await fetch(`/api/upload/${lang}`, { method: 'POST', body: formData });
+    const json = await res.json();
+    if (json.ok) {
+      toast(`Uploaded as WebP: ${json.path} (${json.size_kb}KB)`, 'success');
+      status.textContent = `✓ ${json.filename} — ${json.size_kb}KB`;
+      fileInput.value = '';
+      loadImageGrid();
+    } else {
+      toast(json.error || 'Upload failed', 'error');
+      status.textContent = '';
+    }
+  } catch(e) {
+    toast('Upload error', 'error');
+    status.textContent = '';
+  }
+}
+
+function previewFile(input) {
+  if (input.files.length)
+    document.getElementById('upload-status').textContent = input.files[0].name;
+}
+
+function copyPath(path) {
+  navigator.clipboard.writeText(path).then(() => toast(`Copied: ${path}`, 'success'));
+}
+
+// ═══════════════════════════════════════════════════════════════
+// BROWSE FROM DISK → AUTO-UPLOAD
+// ═══════════════════════════════════════════════════════════════
+function browseAndUpload(lang, targetInputId) {
+  const input = document.createElement('input');
+  input.type   = 'file';
+  input.accept = 'image/*';
+  input.onchange = async () => {
+    if (!input.files.length) return;
+    const file     = input.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+    toast('Uploading…', 'success');
+    try {
+      const res  = await fetch(`/api/upload/${lang}`, { method: 'POST', body: formData });
+      const json = await res.json();
+      if (json.ok) {
+        document.getElementById(targetInputId).value = json.path;
+        toast(`✓ ${json.filename} → ${lang}/ (${json.size_kb}KB WebP)`, 'success');
+      } else {
+        toast(json.error || 'Upload failed', 'error');
+      }
+    } catch (e) {
+      toast('Upload error', 'error');
+    }
+  };
+  input.click();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// IMAGE PICKER MODAL
+// ═══════════════════════════════════════════════════════════════
+async function openImgModal(lang, targetInputId) {
+  S.imgModalLang = lang;
+  S.imgModalCb = (path) => {
+    document.getElementById(targetInputId).value = path;
+    closeImgModal();
+  };
+  const files = await api(`/api/images/${lang}`);
+  document.getElementById('modal-grid').innerHTML = files.length
+    ? files.map(f => {
+        const path = `images/${lang}/${f}`;
+        return `<div class="modal-img" onclick="pickImg('${esc(path)}')">
+          <img src="/${path}" onerror="this.style.background='#16274f'">
+          <span>${esc(f)}</span>
+        </div>`;
+      }).join('')
+    : `<p style="color:var(--muted)">No images in <b>${lang}</b> folder. Upload some in the Images tab.</p>`;
+  document.getElementById('img-modal').classList.add('open');
+}
+
+function pickImg(path) {
+  if (S.imgModalCb) S.imgModalCb(path);
+}
+function closeImgModal() {
+  document.getElementById('img-modal').classList.remove('open');
+  S.imgModalCb = null;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SERIES — EDITOR
+// ═══════════════════════════════════════════════════════════════
+function openNewSeries() {
+  S.editingMode    = 'series';
+  S.editingSeriesId = null;
+  S.editingIsNew   = true;
+  S.activeLang     = 'bg';
+  renderSeriesEditor({ id: '', i18n: {}, seriesImage: '', books: [] }, true);
+  renderBookList();
+}
+
+function openSeriesEditor(seriesId) {
+  const series = (S.authorData.series || []).find(s => s.id === seriesId);
+  if (!series) return;
+  S.editingMode    = 'series';
+  S.editingSeriesId = seriesId;
+  S.editingIsNew   = false;
+  S.activeLang     = 'bg';
+  renderSeriesEditor(series, false);
+  renderBookList();
+}
+
+function renderSeriesEditor(series, isNew) {
+  const i18n = series.i18n || {};
+  const SLANG = ['bg', 'en'];
+
+  const langTabs = SLANG.map(l => {
+    const active  = l === S.activeLang ? ' active' : '';
+    const filled  = (i18n[l]?.title) && l !== S.activeLang ? ' has-data' : '';
+    return `<button class="lang-tab${active}${filled}" data-lang="${l}"
+              onclick="switchBookLang('${l}')">${l.toUpperCase()}</button>`;
+  }).join('');
+
+  const langPanels = SLANG.map(l => {
+    const d = i18n[l] || {};
+    const active = l === S.activeLang ? ' active' : '';
+    return `<div class="lang-panel${active}" id="blp-${l}">
+      <div class="form-row">
+        <label>Title</label>
+        <input id="st-${l}" value="${esc(d.title||'')}" placeholder="Series title in ${l.toUpperCase()}">
+      </div>
+      <div class="form-row" style="align-items:flex-start">
+        <label style="padding-top:6px">Synopsis</label>
+        <textarea id="ss-${l}" rows="4"
+          style="flex:1;padding:6px 9px;border:1px solid var(--border);border-radius:var(--radius);font-size:13px;font-family:inherit;resize:vertical"
+          placeholder="Short series description...">${esc(d.series_synopsis||'')}</textarea>
+      </div>
+    </div>`;
+  }).join('');
+
+  const bookCount = (series.books || []).length;
+
+  document.getElementById('book-editor').innerHTML = `
+    <div class="card">
+      <h3>${isNew ? '🆕 New Series' : '✏️ Edit Series'}</h3>
+      <div class="form-row">
+        <label>ID</label>
+        <input id="sid" value="${esc(series.id||'')}" placeholder="e.g. boria" ${isNew?'':'readonly'}>
+      </div>
+      <div class="form-row">
+        <label>BG Image</label>
+        <div class="path-row">
+          <input id="simg" value="${esc(series.seriesImage||'')}" placeholder="images/common/series-name.jpg">
+          <button class="btn-sm" onclick="browseAndUpload('common', 'simg')">📁 Browse</button>
+          <button class="btn-sm" style="background:#16274f;color:var(--muted)" onclick="openImgModal('common', 'simg')">🖼 Gallery</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Language Data</h3>
+      <div class="lang-tabs">${langTabs}</div>
+      <div id="book-lang-panels">${langPanels}</div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-success" onclick="saveSeries()">💾 Save Series</button>
+      ${!isNew ? `<button class="btn-danger" onclick="deleteSeries('${esc(series.id)}')"
+        title="${bookCount} book(s) will also be deleted">🗑 Delete Series${bookCount ? ` (${bookCount} books)` : ''}</button>` : ''}
+    </div>`;
+}
+
+function saveSeries() {
+  if (!S.authorData || !S.authorData.meta) {
+    toast('⚠ Author data not loaded — refresh the page before saving', 'error'); return;
+  }
+  const id = document.getElementById('sid').value.trim();
+  if (!id) { toast('Series ID is required', 'error'); return; }
+
+  const seriesImage = document.getElementById('simg').value.trim();
+  const i18n = {};
+  for (const l of ['bg', 'en']) {
+    const title    = document.getElementById(`st-${l}`)?.value?.trim();
+    const synopsis = document.getElementById(`ss-${l}`)?.value?.trim();
+    if (title) {
+      i18n[l] = { title };
+      if (synopsis) i18n[l].series_synopsis = synopsis;
+    }
+  }
+  if (!Object.keys(i18n).length) { toast('Add at least one language title', 'error'); return; }
+
+  S.authorData.series = S.authorData.series || [];
+
+  if (S.editingIsNew) {
+    if (S.authorData.series.find(s => s.id === id)) {
+      toast('A series with this ID already exists', 'error'); return;
+    }
+    S.authorData.series.push({ id, i18n, seriesImage, books: [] });
+  } else {
+    const idx = S.authorData.series.findIndex(s => s.id === S.editingSeriesId);
+    if (idx >= 0) {
+      const existingBooks = S.authorData.series[idx].books || [];
+      S.authorData.series[idx] = { id, i18n, seriesImage, books: existingBooks };
+    }
+  }
+
+  S.editingSeriesId = id;
+  S.editingIsNew    = false;
+  saveData(() => renderBookList());
+}
+
+function deleteSeries(id) {
+  const series    = (S.authorData.series || []).find(s => s.id === id);
+  const bookCount = series?.books?.length || 0;
+  const msg = bookCount > 0
+    ? `Delete series "${id}" and ALL ${bookCount} book(s) inside it?\n\nThis cannot be undone.`
+    : `Delete series "${id}"?`;
+  if (!confirm(msg)) return;
+  S.authorData.series = S.authorData.series.filter(s => s.id !== id);
+  S.editingMode     = null;
+  S.editingSeriesId = null;
+  document.getElementById('book-editor').innerHTML = '<div class="placeholder">Series deleted</div>';
+  saveData(() => renderBookList());
+}
+
+// ═══════════════════════════════════════════════════════════════
+// FEATURED BOOKS
+// ═══════════════════════════════════════════════════════════════
+function openFeaturedEditor() {
+  S.editingMode = 'featured';
+  renderFeaturedEditor();
+  renderBookList();
+}
+
+function renderFeaturedEditor() {
+  const allBooks = [];
+  const addBook = (b) => {
+    const t = (b.i18n.bg || b.i18n.en || Object.values(b.i18n)[0] || {}).title || b.id;
+    allBooks.push({ id: b.id, label: t });
+  };
+  (S.authorData.series || []).forEach(s => (s.books || []).forEach(addBook));
+  (S.authorData.novels || []).forEach(addBook);
+  (S.authorData.short_stories || []).forEach(addBook);
+
+  const featured = S.authorData.featured || [];
+  const mkOpts = (slot) => {
+    const none = `<option value="">(none)</option>`;
+    return none + allBooks.map(b =>
+      `<option value="${esc(b.id)}" ${featured[slot] === b.id ? 'selected' : ''}>${esc(b.label)} [${esc(b.id)}]</option>`
+    ).join('');
+  };
+
+  document.getElementById('book-editor').innerHTML = `
+    <div class="card">
+      <h3>⭐ Featured Books on Homepage</h3>
+      <p style="color:var(--muted);font-size:12px;margin-bottom:14px">
+        Select up to 2 books to show as "Latest Works" on the homepage.
+      </p>
+      <div class="form-row">
+        <label>Slot 1</label>
+        <select id="feat-0" style="flex:1;padding:6px 9px;border:1px solid var(--border);border-radius:var(--radius);font-size:13px">
+          ${mkOpts(0)}
+        </select>
+      </div>
+      <div class="form-row">
+        <label>Slot 2</label>
+        <select id="feat-1" style="flex:1;padding:6px 9px;border:1px solid var(--border);border-radius:var(--radius);font-size:13px">
+          ${mkOpts(1)}
+        </select>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-success" onclick="saveFeatured()">💾 Save Featured</button>
+    </div>`;
+}
+
+async function saveFeatured() {
+  if (!S.authorData || !S.authorData.meta) {
+    toast('⚠ Author data not loaded', 'error'); return;
+  }
+  const v0 = document.getElementById('feat-0').value;
+  const v1 = document.getElementById('feat-1').value;
+  const ids = [v0, v1].filter(Boolean);
+  S.authorData.featured = ids;
+
+  const res = await api('/api/data', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(S.authorData)
+  });
+  if (res.ok) toast('Featured books saved ✓', 'success');
+  else toast('Save error: ' + (res.error || '?'), 'error');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SAVE CONFIRMATION MODAL
+// ═══════════════════════════════════════════════════════════════
+function showSaveModal(wasNew) {
+  pendingModalNew = wasNew;
+  document.getElementById('save-modal-msg').textContent = wasNew
+    ? 'The new book has been added successfully.'
+    : 'All changes have been saved.';
+  document.getElementById('save-modal').style.display = 'flex';
+}
+
+function closeSaveModal() {
+  document.getElementById('save-modal').style.display = 'none';
+  if (pendingModalNew) {
+    idManual        = false;
+    S.editingBookId = null;
+    S.editingIsNew  = true;
+    renderBookEditor({ id: '', i18n: {}, links: [] }, 'novel', null, true, {});
+  }
+  pendingModalNew = false;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// AUTO-ID FROM TITLE
+// ═══════════════════════════════════════════════════════════════
+function cyrToLat(s) {
+  const map = {
+    'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ж':'zh','з':'z',
+    'и':'i','й':'y','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p',
+    'р':'r','с':'s','т':'t','у':'u','ф':'f','х':'h','ц':'ts','ч':'ch',
+    'ш':'sh','щ':'sht','ъ':'a','ь':'','ю':'yu','я':'ya',
+    'А':'A','Б':'B','В':'V','Г':'G','Д':'D','Е':'E','Ж':'Zh','З':'Z',
+    'И':'I','Й':'Y','К':'K','Л':'L','М':'M','Н':'N','О':'O','П':'P',
+    'Р':'R','С':'S','Т':'T','У':'U','Ф':'F','Х':'H','Ц':'Ts','Ч':'Ch',
+    'Ш':'Sh','Щ':'Sht','Ъ':'A','Ь':'','Ю':'Yu','Я':'Ya'
+  };
+  return [...s].map(c => (map[c] !== undefined ? map[c] : c)).join('');
+}
+
+function titleToId(title) {
+  return cyrToLat(title)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function autoFillId() {
+  if (idManual) return;
+  const titleEl = document.getElementById(`bt-${S.activeLang}`);
+  if (!titleEl) return;
+  const bidEl = document.getElementById('bid');
+  if (bidEl && !bidEl.readOnly) bidEl.value = titleToId(titleEl.value);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SAVE DATA TO SERVER
+// ═══════════════════════════════════════════════════════════════
+async function saveData(cb) {
+  const res = await api('/api/data', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(S.authorData)
+  });
+  if (res.ok) {
+    toast('Saved ✓', 'success');
+    if (cb) cb();
+  } else {
+    toast('Save error: ' + (res.error || '?'), 'error');
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// BUILD (SSG)
+// ═══════════════════════════════════════════════════════════════
+async function runBuild() {
+  const statusEl = document.getElementById('build-status');
+  const logEl    = document.getElementById('build-log');
+  statusEl.textContent = 'Building…';
+  statusEl.className = 'build-status';
+  logEl.style.display = 'none';
+  try {
+    const res = await fetch('/api/build', { method: 'POST' });
+    const json = await res.json();
+    logEl.style.display = 'block';
+    logEl.textContent = (json.stdout || '') + (json.stderr ? '\n' + json.stderr : '');
+    if (json.ok) {
+      statusEl.textContent = '✅ Build succeeded';
+      statusEl.className = 'build-status ok';
+      toast('Site rebuilt ✓', 'success');
+    } else {
+      statusEl.textContent = '❌ Build failed';
+      statusEl.className = 'build-status fail';
+      toast('Build failed — see log', 'error');
+    }
+  } catch (e) {
+    statusEl.textContent = '❌ Could not reach build endpoint';
+    statusEl.className = 'build-status fail';
+  }
+}
+
+async function runPublish() {
+  if (!confirm('This will push all local changes to GitHub and update kzpendrake.com live. Continue?')) return;
+  const statusEl = document.getElementById('publish-status');
+  const logEl    = document.getElementById('publish-log');
+  statusEl.textContent = 'Publishing…';
+  statusEl.className = 'build-status';
+  logEl.style.display = 'none';
+  try {
+    const res = await fetch('/api/publish', { method: 'POST' });
+    const json = await res.json();
+    logEl.style.display = 'block';
+    logEl.textContent = json.log || '';
+    if (json.ok && json.nothing_to_publish) {
+      statusEl.textContent = 'ℹ Nothing to publish — already up to date';
+      statusEl.className = 'build-status';
+      toast('Nothing to publish', 'success');
+    } else if (json.ok) {
+      statusEl.textContent = '✅ Published — kzpendrake.com will update shortly';
+      statusEl.className = 'build-status ok';
+      toast('Published ✓', 'success');
+    } else {
+      statusEl.textContent = '❌ Publish failed';
+      statusEl.className = 'build-status fail';
+      toast('Publish failed — see log', 'error');
+    }
+  } catch (e) {
+    statusEl.textContent = '❌ Could not reach publish endpoint';
+    statusEl.className = 'build-status fail';
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// UTILITIES
+// ═══════════════════════════════════════════════════════════════
+async function api(url, opts) {
+  const r = await fetch(url, opts);
+  return r.json();
+}
+
+function esc(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function toast(msg, type = 'success') {
+  const el = document.createElement('div');
+  el.className = `toast-item ${type}`;
+  el.textContent = msg;
+  document.getElementById('toast').appendChild(el);
+  setTimeout(() => el.remove(), 3000);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// START
+// ═══════════════════════════════════════════════════════════════
+init();
+</script>
+</body>
+</html>

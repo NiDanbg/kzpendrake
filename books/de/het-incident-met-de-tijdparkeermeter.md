@@ -1,0 +1,51 @@
+KAPITEL 1: Das Chaos beginnt
+
+Quibbletown schlief nie. Manchmal verfiel die Stadt in einen kurzen Schlummer, der vom Knall eines lausigen Zauberspruchs oder den Rufen fliegender Händler unterbrochen wurde, die „frische“ magische Tränke anboten, welche nur mühsam den Gestank von Abwasser verbargen. Die Gassen wanden sich wie ein Labyrinth, kreuzten überfüllte Plätze und umzingelten Gebäude, die wie in einem magischen Fieberwahn aus dem Boden geschossen zu sein schienen. Die Straßenlaternen, angetrieben von Zaubern des ewigen Leuchtens, flackerten im Rhythmus der Launen ihrer Instandhalter. Unter dem Kopfsteinpflaster sangen die Gewässer melancholische Melodien, und die Luft war schwer vom Duft nach verbranntem Brot, statischer Elektrizität und jener spezifischen energetischen Mischung, die als „Stadtmagie“ bekannt war.
+Im Zentrum dieses organisierten Chaos stand Wilfred „Willy“ Spellburn – ein junger Magier mit Ambitionen, die seine Fähigkeiten bei Weitem überstiegen. Willy war groß, stand aber gebeugt, als würde die Welt ihn zu Boden drücken. Sein zerzaustes Haar erinnerte an ein Nest, an dem eine Taube ein gescheitertes architektonisches Experiment durchgeführt hatte. Seine Robe, einst dunkelblau, war zu einer undefinierbaren Nuance von „Magiergrau“ verblichen. Seine Socken passten wie immer nicht zusammen – die linke war gestreift, während die rechte mit kleinen Drachen bestickt war, die den verzweifelten Versuch unternahmen, aus dem Stoff zu fliehen.
+Heute war der große Tag.
+Ich werde beweisen, dass ich kein völliger Versager bin, redete er sich ein.
+Die Magiergilde – jene hochmütige Institution, welche die Regeln in Quibbletown diktierte – hatte ihm eine Chance gewährt. Die Aufgabe schien denkbar simpel: ein Zauber zur räumlichen Optimierung des Parkens.
+Die Stadt litt unter Staus von epischen Ausmaßen. Karren, fliegende Teppiche und sogar zufällig zum Leben erwachte Statuen kämpften um jeden Zentimeter freien Platz. Die Bürger griffen regelmäßig zu Bestechung, Drohungen oder kleineren Flüchen, um ein Stück Land zu ergattern.
+Willy bezog auf dem zentralen Platz Stellung. Um ihn herum scharten sich neugierige Gaffer, einige arrogante Vertreter der Gilde und verdächtig viele Tauben, die die Katastrophe förmlich zu erahnen schienen. Erzmagier Velkor stellte alle anderen in den Schatten – die goldenen Fäden seiner Gewänder reflektierten das Licht so grell, dass sie die Vögel blendeten und kleine Sonnen auf die Steine malten. Velkor betrachtete den jungen Mann mit der Miene eines Richters, der das Urteil bereits unterschrieben hat und nur noch darauf wartet, dass die lästige Formalität ein Ende nimmt.
+Der junge Mann umklammerte seinen Zauberstab – ein billiges Modell von einem Straßenstand, das als „kaum benutzt“ angepriesen worden war. Das Holz war leicht verbogen und sprühte hin und wieder Funken, die nach verbranntem Toast rochen. Willy straffte den Rücken und räusperte sich.
+„Sehr geehrte Damen und Herren“, begann er, und seine Stimme zitterte wie die Saite einer verstimmten Harfe. „Heute werde ich Ihnen einen Zauber präsentieren, der das Parken in Quibbletown für immer verändern wird!“
+Die Menge murmelte ungläubig.
+„Hoffentlich ist er besser als der Reinigungszauber, der meine Wäsche in Frösche verwandelt hat!“, rief jemand von hinten.
+Willy ignorierte den Einwurf. Er hob den Zauberstab, schloss die Augen und begann, die Formel zu rezitieren. Er hatte sie die ganze Nacht geprobt, obwohl er gegen Mitternacht über den Seiten eingeschlafen war und Speichelspuren auf dem Kapitel „Räumliche Verzerrungen“ hinterlassen hatte.
+„Parcus Maximus… Spatium Reducto…“, murmelte er, während das Instrument in seiner Hand zu vibrieren begann.
+Die Menge hielt den Atem an, in Erwartung von etwas Imposantem oder zumindest etwas, das nicht den Hut von jemandem in Brand setzen würde.
+Der erste, mit leuchtender Farbe umrandete Parkplatz flimmerte. Seine Farben wechselten abrupt – von Blau zu Grün, bis sie schließlich in einem beunruhigenden Lila erstarrten. Willy öffnete ein Auge. Das war definitiv nicht Teil des Plans. Mit einem leisen Knallen, das an das Entkorken einer Flasche gereiften Weins erinnerte, verschwand das umrissene Rechteck. Die Magie hatte die räumliche Barriere am falschen Ort durchbrochen, und anstelle eines Karrens materialisierte sich etwas anderes auf dem Platz.
+Vor ihnen baute sich ein Troll auf. Riesig, mit einer Haut wie Granit und Augen, die wie polierter Quarz funkelten. In der einen Hand hielt er ein Rechnungsbuch, in der anderen einen magischen Bleistift, der in seiner massiven Pranke geradezu lächerlich wirkte. Der Troll musterte die Anwesenden, ließ seinen Blick auf Willy ruhen und grollte mit einer Stimme, die wie eine abgehende Lawine klang:
+„Du. Falschparken im Felsigen Nichts. Bußgeld: drei Ziegen oder der Währungsgegenwert in magischen Kristallen.“
+Ein kollektives Keuchen ging durch die Menge. Irgendjemand ganz hinten konnte sich nicht beherrschen und kicherte.
+Willy blinzelte. Seine Zuversicht verdampfte wie Wasser auf einer heißen Herdplatte.
+„Aber... das war doch nur ein Karren voller Kürbisse!“
+Der Troll runzelte die steinernen Brauen – das Geräusch erinnerte an das Aneinanderreiben von Flusskieseln.
+„Kürbisse? Das bedeutet eine zusätzliche Gebühr für Biomüll.“
+Er kritzelte etwas in sein Notizbuch, und die Menge brach in schallendes Gelächter aus. Einer der Magier der Gilde – ein großer Mann mit einem Bart, der ein Eigenleben zu führen schien – schüttelte den Kopf und murmelte etwas über eine „Generation von Amateuren“. Erzmagier Velkor schwieg, doch über die goldenen Fäden seiner Robe huschte ein Funke, der einem verborgenen Lächeln glich.
+Willys Gesicht lief feuerrot an.
+„Warten Sie!“, rief er und fuchtelte panisch mit seinem Zauberstab herum. „Ich mache das wieder in Ordnung!“
+Eine fatale Fehlentscheidung. Der Zauberstab spuckte eine Garbe von Funken aus, die den benachbarten Parkplatz traf. Dieser verschwand mit einem scharfen Knall, und an seiner Stelle tauchte ein Brunnen auf. Kein gewöhnlicher Brunnen, sondern eine Anlage, die dicken Schokoladensirup spie und eine Melodie sang, die an die Hymne einer vergessenen Dimension erinnerte.
+Die Menge lachte nicht mehr. Sie brüllte vor Begeisterung. Die Tauben, die das Geschehen bis zu diesem Moment in hochmütigem Schweigen beobachtet hatten, stürzten sich auf die Schokolade. Eine von ihnen – etwas fülliger und mit einem ungewöhnlich intelligenten Blick – landete neben Willy und krächzte:
+„Das grenzte an Heldentum... wenn man unter Heldentum versteht, den Platz in ein interdimensionales Buffet zu verwandeln.“
+Willy starrte sie fassungslos an.
+„Du... du sprichst?“
+„Natürlich spreche ich“, plusterte sich der Vogel auf. „Ich bin Archibald, ehemaliger Magier, Opfer eines bedauerlichen Transmutationsunfalls. Aber du, mein Junge, hast gerade selbst meine größten Fehlschläge in den Schatten gestellt. Gratulation.“
+Bevor Willy antworten konnte, mischte sich der Troll mit wachsender Gereiztheit erneut ein:
+„Neuerlicher Verstoß. Brunnen ohne die erforderliche Lizenz. Bußgeld: fünf Ziegen oder der Gegenwert in Halbedelsteinen.“
+„Ich besitze keine Ziegen!“, schrie Willy, dem allmählich bewusst wurde, dass ihm die Situation völlig entglitt.
+In einem verzweifelten Ruf nach einem Wunder schwang er den Zauberstab abermals. Ein dritter Parkplatz verdampfte. An seiner Stelle erschien ein kleiner Drache, der gleichzeitig verdutzt und leicht beleidigt dreinschaute. Die Bestie stieß eine Feuersäule aus und setzte den Hut eines der hohen Magier in Brand, während die Menge applaudierte, als wäre all dies Teil der geplanten Show.
+„Genug!“
+Die Stimme durchschnitt den Lärm wie ein Donnerschlag.
+Alle erstarrten. Sogar der Drache hörte auf, Feuer zu speien, und legte neugierig den Kopf schief. Aus den Schatten trat eine Gestalt in einer schwarzen Robe, die das Umgebungslicht förmlich zu verschlucken schien. Ein blasses Gesicht, Augen wie zwei Eissphären und eine Aura, die selbst die Tauben zum Rückzug zwang. Es war Inquisitor Grimble, Anführer der Gilde der Parkinspektoren – eine Organisation, die in Quibbletown weit mehr Schrecken verbreitete als die meisten dunklen Magier.
+„Wilfred Spellburn“, sprach Grimble mit einer Stimme, die an das Zufallen eines steinernen Sarkophags erinnerte. „Ihre Handlungen stellen einen Verstoß gegen Artikel 47, Absatz 3 des Kodex für Stadtmagie dar: nicht genehmigte Generierung interdimensionaler Portale. Sie haben zudem ein Massenchaos auf einem öffentlichen Platz verursacht, was einen Verstoß gegen Artikel 12 darstellt. Und am allerwichtigsten – Sie haben das heilige Gesetz des Parkens mit Füßen getreten: Besetze niemals einen Platz, ohne die Gebühr entrichtet zu haben.“
+„Aber ich... ich hatte nicht die Absicht...“, stotterte Willy.
+Grimble hob eine Hand, und die Worte blieben ihm im Hals stecken.
+„Sie haben drei Tage Zeit, um dieses Chaos zu beseitigen“, fuhr der Inquisitor fort. „Andernfalls wird die Stadt Sanktionen verhängen. Und Sanktionen, Herr Spellburn, sind überaus unangenehm.“
+Sein Lächeln glich einem Riss in einem Gletscher – kalt und bedrohlich. Erzmagier Velkor deutete eine kaum merkliche Verbeugung in Richtung Grimble an – eine knappe, formelle Geste unter Kollegen, nicht unter Feinden. Willy bemerkte dies nicht.
+Der Platz leerte sich rasch. Der junge Mann blieb allein zwischen dem Troll, dem Drachen, dem singenden Brunnen und der sprechenden Taube zurück. Der Troll machte sich immer noch Notizen in seinem Buch, der Drache versuchte, den Schokoladensirup abzulecken, und Archibald landete auf Willys Schulter.
+„Nun, mein Junge, das war beeindruckend. Was jetzt?“
+Willy überblickte die Zerstörung und spürte, wie sich sein Magen schmerzhaft zusammenzog.
+„Jetzt“, murmelte er mit bebender Stimme, „glaube ich, dass ich einen sehr starken Tee brauche. Und vermutlich eine neue Identität.“
+Tief im Inneren wusste er jedoch, dass er nicht fliehen würde. Quibbletown war sein Zuhause, und er hatte es gerade in einen interdimensionalen Parkplatz verwandelt. Wenn er keinen Weg fand, den Schaden zu beheben, würde Grimble dafür sorgen, dass sein Leben unerträglich kompliziert wurde.
+Der kleine Drache hatte derweil den Schokoladenbrunnen entdeckt und betrachtete ihn mit der Miene eines Geschöpfs, das soeben den Sinn des Daseins gefunden hat.

@@ -1,0 +1,7 @@
+dist/
+__pycache__/
+*.pyc
+
+# Working material, not part of the published site
+_arhiv/
+_mockups/
