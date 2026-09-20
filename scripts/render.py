@@ -270,56 +270,64 @@ BOOK_FACTS = {
            'publisher': ' Издател: {publisher}.',
            'isbn': ' ISBN {isbn}.',
            'langs': ' Издания на: {langs}.'},
-    'en': {'base': '“{title}” is a {genre} by {author}.',
+    'en': {'base': '“{title}” is {article}{genre} by {author}.',
+           'article': 'a ',
            'series_n': ' Book {n} of the {series} series.',
            'series': ' Part of the {series} series.',
            'published': ' Published in {year}.',
            'publisher': ' Publisher: {publisher}.',
            'isbn': ' ISBN {isbn}.',
            'langs': ' Editions in: {langs}.'},
-    'de': {'base': '„{title}“ ist ein {genre} von {author}.',
+    'de': {'base': '„{title}“ ist {article}{genre} von {author}.',
+           'article': 'ein ',
            'series_n': ' Band {n} der Reihe „{series}“.',
            'series': ' Teil der Reihe „{series}“.',
            'published': ' Erschienen {year}.',
            'publisher': ' Verlag: {publisher}.',
            'isbn': ' ISBN {isbn}.',
            'langs': ' Ausgaben auf: {langs}.'},
-    'fr': {'base': '« {title} » est un {genre} de {author}.',
+    'fr': {'base': '« {title} » est {article}{genre} de {author}.',
+           'article': 'un ',
            'series_n': ' Tome {n} de la série « {series} ».',
            'series': ' Fait partie de la série « {series} ».',
            'published': ' Publié en {year}.',
            'publisher': ' Éditeur : {publisher}.',
            'isbn': ' ISBN {isbn}.',
            'langs': ' Éditions en : {langs}.'},
-    'it': {'base': '«{title}» è un {genre} di {author}.',
+    'it': {'base': '«{title}» è {article}{genre} di {author}.',
+           'article': 'un ',
            'series_n': ' Libro {n} della serie «{series}».',
            'series': ' Fa parte della serie «{series}».',
            'published': ' Pubblicato nel {year}.',
            'publisher': ' Editore: {publisher}.',
            'isbn': ' ISBN {isbn}.',
            'langs': ' Edizioni in: {langs}.'},
-    'nl': {'base': '“{title}” is een {genre} van {author}.',
+    'nl': {'base': '“{title}” is {article}{genre} van {author}.',
+           'article': 'een ',
            'series_n': ' Deel {n} van de reeks “{series}”.',
            'series': ' Onderdeel van de reeks “{series}”.',
            'published': ' Verschenen in {year}.',
            'publisher': ' Uitgever: {publisher}.',
            'isbn': ' ISBN {isbn}.',
            'langs': ' Edities in: {langs}.'},
-    'es': {'base': '«{title}» es un {genre} de {author}.',
+    'es': {'base': '«{title}» es {article}{genre} de {author}.',
+           'article': 'un ',
            'series_n': ' Libro {n} de la serie «{series}».',
            'series': ' Forma parte de la serie «{series}».',
            'published': ' Publicado en {year}.',
            'publisher': ' Editorial: {publisher}.',
            'isbn': ' ISBN {isbn}.',
            'langs': ' Ediciones en: {langs}.'},
-    'pt': {'base': '«{title}» é um {genre} de {author}.',
+    'pt': {'base': '«{title}» é {article}{genre} de {author}.',
+           'article': 'um ',
            'series_n': ' Livro {n} da série «{series}».',
            'series': ' Faz parte da série «{series}».',
            'published': ' Publicado em {year}.',
            'publisher': ' Editora: {publisher}.',
            'isbn': ' ISBN {isbn}.',
            'langs': ' Edições em: {langs}.'},
-    'se': {'base': '”{title}” är en {genre} av {author}.',
+    'se': {'base': '”{title}” är {article}{genre} av {author}.',
+           'article': 'en ',
            'series_n': ' Bok {n} i serien ”{series}”.',
            'series': ' Del av serien ”{series}”.',
            'published': ' Utgiven {year}.',
@@ -327,6 +335,31 @@ BOOK_FACTS = {
            'isbn': ' ISBN {isbn}.',
            'langs': ' Utgåvor på: {langs}.'},
 }
+
+
+# Articles a genre may already carry. "Una historia satírica de burocracia
+# mágica" is a whole phrase, not a bare genre noun, so the template must not
+# put a second article in front of it.
+GENRE_ARTICLES = {
+    'en': r"(a|an|the)\b", 'de': r"(ein|eine|einer)\b", 'fr': r"(un|une)\b",
+    'it': r"(un|uno|una|un')", 'nl': r"(een)\b", 'es': r"(un|una|unos|unas)\b",
+    'pt': r"(um|uma)\b", 'se': r"(en|ett)\b",
+}
+
+
+def genre_has_article(lang, genre):
+    import re as _re
+    pattern = GENRE_ARTICLES.get(lang)
+    return bool(pattern and _re.match(pattern, genre, _re.IGNORECASE))
+
+
+def genre_article(lang, genre, default):
+    """The article to put before the genre, or nothing when it brings its own."""
+    if genre_has_article(lang, genre):
+        return ''
+    if lang == 'en' and genre[:1].lower() in 'aeiou':
+        return 'an '
+    return default
 
 
 def short_genre(genre):
@@ -360,8 +393,13 @@ def book_facts_sentence(data, book, lang, series=None):
     genre = short_genre(bdata.get('genre'))
     if not genre or not bdata.get('title'):
         return ''
+    article = genre_article(lang, genre, tpl.get('article', ''))
+    if genre_has_article(lang, genre):
+        # The genre carries its own article. It was typed as a standalone label,
+        # so it starts with a capital; mid-sentence that reads like a title.
+        genre = genre[0].lower() + genre[1:]
     out = tpl['base'].format(title=bdata['title'], genre=genre,
-                             author=author_name(data, lang))
+                             author=author_name(data, lang), article=article)
     stitle = series_title_for(series, lang)
     if stitle:
         if lang == 'en':
