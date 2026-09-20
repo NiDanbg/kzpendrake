@@ -65,227 +65,242 @@ const authorData = {
         {
             "books": [
                 {
+                    "id": "het-incident-met-de-tijdparkeermeter",
                     "i18n": {
-                        "de": {
-                            "cover": "images/de/Der-Vorfall-mit-der-Zeitparkuhr_-EL.webp",
-                            "excerpt": "books/de/het-incident-met-de-tijdparkeermeter.md",
-                            "genre": "Ein humorvolles Wohlfühl-Fantasy-Abenteuer",
-                            "synopsis": "synopsis/de/het-incident-met-de-tijdparkeermeter.txt",
-                            "title": "Der Vorfall mit der Zeitparkuhr"
-                        },
                         "en": {
-                            "cover": "images/en/The_Time_Parking_Meter_Incident.webp",
-                            "excerpt": "books/en/het-incident-met-de-tijdparkeermeter.md",
+                            "title": "The Time Parking Meter Incident",
                             "genre": "Humorous Cozy Fantasy Adventure",
+                            "cover": "images/en/The_Time_Parking_Meter_Incident.webp",
                             "synopsis": "synopsis/en/het-incident-met-de-tijdparkeermeter.txt",
-                            "title": "The Time Parking Meter Incident"
+                            "excerpt": "books/en/het-incident-met-de-tijdparkeermeter.md"
                         },
-                        "es": {
-                            "cover": "images/es/El_incidente_del_parquimetro_temporal-EL-ES.webp",
-                            "excerpt": "books/es/het-incident-met-de-tijdparkeermeter.md",
-                            "genre": "Una aventura de fantasía de humor y cozy",
-                            "synopsis": "synopsis/es/het-incident-met-de-tijdparkeermeter.txt",
-                            "title": "El Incidente del Parquímetro Temporal"
+                        "de": {
+                            "title": "Der Vorfall mit der Zeitparkuhr",
+                            "genre": "Ein humorvolles Wohlfühl-Fantasy-Abenteuer",
+                            "cover": "images/de/Der-Vorfall-mit-der-Zeitparkuhr_-EL.webp",
+                            "synopsis": "synopsis/de/het-incident-met-de-tijdparkeermeter.txt",
+                            "excerpt": "books/de/het-incident-met-de-tijdparkeermeter.md"
                         },
                         "fr": {
-                            "cover": "images/fr/LIncident_du_Parcmetre_Temporel_-EL-FR.webp",
-                            "excerpt": "books/fr/het-incident-met-de-tijdparkeermeter.md",
+                            "title": "L'Incident du Parcmètre Temporel",
                             "genre": "Une aventure de fantasy humoristique et cosy",
+                            "cover": "images/fr/LIncident_du_Parcmetre_Temporel_-EL-FR.webp",
                             "synopsis": "synopsis/fr/het-incident-met-de-tijdparkeermeter.txt",
-                            "title": "L'Incident du Parcmètre Temporel"
+                            "excerpt": "books/fr/het-incident-met-de-tijdparkeermeter.md"
                         },
                         "it": {
-                            "cover": "images/it/LIncidente_del_Parchimetro_Temporale_-EL-IT.webp",
-                            "excerpt": "books/it/het-incident-met-de-tijdparkeermeter.md",
+                            "title": "L'Incidente del Parchimetro Temporale",
                             "genre": "Un'avventura fantasy umoristica e accogliente",
+                            "cover": "images/it/LIncidente_del_Parchimetro_Temporale_-EL-IT.webp",
                             "synopsis": "synopsis/it/het-incident-met-de-tijdparkeermeter.txt",
-                            "title": "L'Incidente del Parchimetro Temporale"
+                            "excerpt": "books/it/het-incident-met-de-tijdparkeermeter.md"
                         },
                         "nl": {
-                            "cover": "images/nl/Het-Incident-met-de-Tijdparkeermeter-EL-NL.webp",
-                            "excerpt": "books/nl/het-incident-met-de-tijdparkeermeter.md",
+                            "title": "Het Incident met de Tijdparkeermeter",
                             "genre": "Humorous Cozy Fantasy Adventure",
+                            "cover": "images/nl/Het-Incident-met-de-Tijdparkeermeter-EL-NL.webp",
                             "synopsis": "synopsis/nl/het-incident-met-de-tijdparkeermeter.txt",
-                            "title": "Het Incident met de Tijdparkeermeter"
+                            "excerpt": "books/nl/het-incident-met-de-tijdparkeermeter.md"
+                        },
+                        "es": {
+                            "title": "El Incidente del Parquímetro Temporal",
+                            "genre": "Una aventura de fantasía de humor y cozy",
+                            "cover": "images/es/El_incidente_del_parquimetro_temporal-EL-ES.webp",
+                            "synopsis": "synopsis/es/het-incident-met-de-tijdparkeermeter.txt",
+                            "excerpt": "books/es/het-incident-met-de-tijdparkeermeter.md"
                         },
                         "pt": {
-                            "cover": "images/pt/O_Incidente_do_Parquimetro_Temporal-EL-PT.webp",
-                            "excerpt": "books/pt/het-incident-met-de-tijdparkeermeter.md",
+                            "title": "O Incidente do Parquímetro Temporal",
                             "genre": "Uma aventura de fantasia aconchegante e bem-humorada",
+                            "cover": "images/pt/O_Incidente_do_Parquimetro_Temporal-EL-PT.webp",
                             "synopsis": "synopsis/pt/het-incident-met-de-tijdparkeermeter.txt",
-                            "title": "O Incidente do Parquímetro Temporal"
+                            "excerpt": "books/pt/het-incident-met-de-tijdparkeermeter.md"
                         },
                         "se": {
-                            "cover": "images/se/Incidenten_med_tidsparkeringsmataren-EL-SE.webp",
-                            "excerpt": "books/se/het-incident-met-de-tijdparkeermeter.md",
+                            "title": "Incidenten med Tidsparkeringsmätaren",
                             "genre": "Ett humoristiskt och mysigt fantasyäventyr",
+                            "cover": "images/se/Incidenten_med_tidsparkeringsmataren-EL-SE.webp",
                             "synopsis": "synopsis/se/het-incident-met-de-tijdparkeermeter.txt",
-                            "title": "Incidenten med Tidsparkeringsmätaren"
+                            "excerpt": "books/se/het-incident-met-de-tijdparkeermeter.md"
                         }
                     },
-                    "id": "het-incident-met-de-tijdparkeermeter",
                     "links": [
                         {
-                            "lang": "EN",
                             "platform": "Amazon",
+                            "lang": "EN",
                             "url": "https://www.amazon.com/dp/B0GZF98QVK"
                         },
                         {
-                            "lang": "DE",
                             "platform": "Amazon",
+                            "lang": "DE",
                             "url": "https://www.amazon.de/dp/B0H1J3NKDR"
                         },
                         {
-                            "lang": "DE",
                             "platform": "Draft2Digital",
+                            "lang": "DE",
                             "url": "https://books2read.com/u/bw5P8v"
                         },
                         {
-                            "lang": "NL",
                             "platform": "Amazon",
+                            "lang": "NL",
                             "url": "https://www.amazon.nl/dp/B0H23F9TDC"
                         },
                         {
-                            "lang": "NL",
                             "platform": "Draft2Digital",
+                            "lang": "NL",
                             "url": "https://books2read.com/u/4Xy7V7"
                         },
                         {
-                            "lang": "FR",
                             "platform": "Draft2Digital",
+                            "lang": "FR",
                             "url": "https://books2read.com/u/bQ0Z8v"
                         },
                         {
-                            "lang": "IT",
                             "platform": "Draft2Digital",
+                            "lang": "IT",
                             "url": "https://books2read.com/u/bWnK7z"
                         },
                         {
-                            "lang": "ES",
                             "platform": "Draft2Digital",
+                            "lang": "ES",
                             "url": "https://books2read.com/u/388Ro6"
                         },
                         {
-                            "lang": "PT",
                             "platform": "Draft2Digital",
+                            "lang": "PT",
                             "url": "https://books2read.com/u/3kaAAL"
                         },
                         {
-                            "lang": "SE",
                             "platform": "Draft2Digital",
+                            "lang": "SE",
                             "url": "https://books2read.com/u/mKZynZ"
                         }
-                    ]
+                    ],
+                    "position": 1
                 },
                 {
+                    "id": "the-sentient-pigeon-syndicate",
                     "i18n": {
-                        "de": {
-                            "cover": "images/de/Das_Syndikat_der_fuhlenden_Tauben-DE-EL.webp",
-                            "excerpt": "books/de/the-sentient-pigeon-syndicate.md",
-                            "genre": "Eine satirische Geschichte über magische Bürokratie",
-                            "synopsis": "synopsis/de/the-sentient-pigeon-syndicate.txt",
-                            "title": "Das Syndikat der fühlenden Tauben"
-                        },
                         "en": {
-                            "cover": "images/en/The_Sentient_Pigeon_Syndicate-EN-EL.webp",
-                            "excerpt": "books/en/the-sentient-pigeon-syndicate.md",
+                            "title": "The Sentient Pigeon Syndicate",
                             "genre": "Humorous Cozy Fantasy Adventure",
+                            "cover": "images/en/The_Sentient_Pigeon_Syndicate-EN-EL.webp",
                             "synopsis": "synopsis/en/the-sentient-pigeon-syndicate.txt",
-                            "title": "The Sentient Pigeon Syndicate"
+                            "excerpt": "books/en/the-sentient-pigeon-syndicate.md"
+                        },
+                        "de": {
+                            "title": "Das Syndikat der fühlenden Tauben",
+                            "genre": "Eine satirische Geschichte über magische Bürokratie",
+                            "cover": "images/de/Das_Syndikat_der_fuhlenden_Tauben-DE-EL.webp",
+                            "synopsis": "synopsis/de/the-sentient-pigeon-syndicate.txt",
+                            "excerpt": "books/de/the-sentient-pigeon-syndicate.md"
                         },
                         "fr": {
-                            "cover": "images/fr/Le_Syndicat_des_Pigeons_Conscients-FR-EL.webp",
-                            "excerpt": "books/fr/the-sentient-pigeon-syndicate.md",
+                            "title": "Le Syndicat des Pigeons Conscients",
                             "genre": "Un conte satirique sur la bureaucratie magique",
+                            "cover": "images/fr/Le_Syndicat_des_Pigeons_Conscients-FR-EL.webp",
                             "synopsis": "synopsis/fr/the-sentient-pigeon-syndicate.txt",
-                            "title": "Le Syndicat des Pigeons Conscients"
+                            "excerpt": "books/fr/the-sentient-pigeon-syndicate.md"
                         },
                         "it": {
-                            "cover": "images/it/Il_Sindacato_dei_Piccioni_Senzienti-IT-EL.webp",
-                            "excerpt": "books/it/the-sentient-pigeon-syndicate.md",
+                            "title": "Il Sindacato dei Piccioni Senzienti",
                             "genre": "Una satira sulla burocrazia magica",
+                            "cover": "images/it/Il_Sindacato_dei_Piccioni_Senzienti-IT-EL.webp",
                             "synopsis": "synopsis/it/the-sentient-pigeon-syndicate.txt",
-                            "title": "Il Sindacato dei Piccioni Senzienti"
+                            "excerpt": "books/it/the-sentient-pigeon-syndicate.md"
                         },
                         "nl": {
-                            "cover": "images/nl/Het_Syndicaat_van_Denkende_Duiven-NL-EL.webp",
-                            "excerpt": "books/nl/the-sentient-pigeon-syndicate.md",
+                            "title": "Het Syndicaat van Denkende Duiven",
                             "genre": "Een satirisch verhaal over magische bureaucratie",
+                            "cover": "images/nl/Het_Syndicaat_van_Denkende_Duiven-NL-EL.webp",
                             "synopsis": "synopsis/nl/the-sentient-pigeon-syndicate.txt",
-                            "title": "Het Syndicaat van Denkende Duiven"
+                            "excerpt": "books/nl/the-sentient-pigeon-syndicate.md"
+                        },
+                        "es": {
+                            "title": "El Sindicato de las Palomas Pensantes",
+                            "genre": "Una historia satírica de burocracia mágica",
+                            "cover": "images/es/El_Sindicato_de_las_Palomas_Pensantes-ES-EL.webp",
+                            "synopsis": "synopsis/es/the-sentient-pigeon-syndicate.txt"
+                        },
+                        "pt": {
+                            "title": "O Sindicato dos Pombos Sencientes",
+                            "genre": "Um conto satírico sobre burocracia mágica",
+                            "cover": "images/pt/O_Sindicato_dos_Pombos_Sencientes-pt-EL.webp",
+                            "synopsis": "synopsis/pt/the-sentient-pigeon-syndicate.txt"
                         },
                         "se": {
-                            "cover": "images/se/Det_tankande_duvsyndikatet-SE-EL.webp",
-                            "excerpt": "books/se/the-sentient-pigeon-syndicate.md",
+                            "title": "Det Tänkande Duvsyndikatet",
                             "genre": "En satirisk berättelse om magisk byråkrati",
+                            "cover": "images/se/Det_tankande_duvsyndikatet-SE-EL.webp",
                             "synopsis": "synopsis/se/the-sentient-pigeon-syndicate.txt",
-                            "title": "Det Tänkande Duvsyndikatet"
+                            "excerpt": "books/se/the-sentient-pigeon-syndicate.md"
                         }
                     },
-                    "id": "the-sentient-pigeon-syndicate",
                     "links": [
                         {
-                            "lang": "EN",
                             "platform": "Amazon",
+                            "lang": "EN",
                             "url": "https://www.amazon.com/dp/B0GZNZRXP1"
                         },
                         {
-                            "lang": "DE",
                             "platform": "Draft2Digital",
+                            "lang": "DE",
                             "url": "https://books2read.com/u/mYjK0Y"
                         },
                         {
-                            "lang": "NL",
                             "platform": "Draft2Digital",
+                            "lang": "NL",
                             "url": "https://books2read.com/u/4E6aee"
                         },
                         {
-                            "lang": "FR",
                             "platform": "Draft2Digital",
+                            "lang": "FR",
                             "url": "https://books2read.com/u/49E58p"
                         },
                         {
-                            "lang": "IT",
                             "platform": "Draft2Digital",
+                            "lang": "IT",
                             "url": "https://books2read.com/u/4j9Z2o"
                         },
                         {
-                            "lang": "SE",
                             "platform": "Draft2Digital",
+                            "lang": "SE",
                             "url": "https://books2read.com/u/mYjWJo"
                         }
-                    ]
+                    ],
+                    "position": 2
                 },
                 {
+                    "id": "der-wettbewerb-der-fleischfressenden-salate",
                     "i18n": {
-                        "de": {
-                            "cover": "images/de/DER_WETTBEWERB_DER_FLEISCHFRESSENDEN_SALATE-DE_.webp",
-                            "excerpt": "books/de/der-wettbewerb-der-fleischfressenden-salate.md",
-                            "genre": "Ein komischer Fantasy-Krimi",
-                            "synopsis": "synopsis/de/der-wettbewerb-der-fleischfressenden-salate.txt",
-                            "title": "Der Wettbewerb der fleischfressenden Salate"
-                        },
                         "en": {
-                            "cover": "images/en/The_Carnivorous_Lettuce_Competition-EN_.webp",
-                            "excerpt": "books/en/der-wettbewerb-der-fleischfressenden-salate.md",
+                            "title": "The Carnivorous Lettuce Competition",
                             "genre": "A Cozy Comic Fantasy Mystery",
+                            "cover": "images/en/The_Carnivorous_Lettuce_Competition-EN_.webp",
                             "synopsis": "synopsis/en/der-wettbewerb-der-fleischfressenden-salate.txt",
-                            "title": "The Carnivorous Lettuce Competition"
+                            "excerpt": "books/en/der-wettbewerb-der-fleischfressenden-salate.md"
+                        },
+                        "de": {
+                            "title": "Der Wettbewerb der fleischfressenden Salate",
+                            "genre": "Ein komischer Fantasy-Krimi",
+                            "cover": "images/de/DER_WETTBEWERB_DER_FLEISCHFRESSENDEN_SALATE-DE_.webp",
+                            "synopsis": "synopsis/de/der-wettbewerb-der-fleischfressenden-salate.txt",
+                            "excerpt": "books/de/der-wettbewerb-der-fleischfressenden-salate.md"
                         }
                     },
-                    "id": "der-wettbewerb-der-fleischfressenden-salate",
                     "links": [
                         {
-                            "lang": "EN",
                             "platform": "Amazon",
+                            "lang": "EN",
                             "url": "https://www.amazon.com/dp/B0H6FF3VJY"
                         },
                         {
-                            "lang": "DE",
                             "platform": "Draft2Digital",
+                            "lang": "DE",
                             "url": "https://books2read.com/u/bxV9GJ"
                         }
-                    ]
+                    ],
+                    "position": 3
                 }
             ],
             "i18n": {

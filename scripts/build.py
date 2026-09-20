@@ -8,9 +8,9 @@ Usage:  python scripts/build.py
 """
 import hashlib
 import json
-from datetime import datetime
 import re
 import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -152,20 +152,42 @@ def write_page(path, html_str, priority=0.5, lastmod=None, hreflangs=None):
     SITEMAP.append((R.BASE_URL + path, priority, lastmod, hreflangs))
 
 
-def source_date(*relpaths):
-    """Date a page's source was last touched, as YYYY-MM-DD. Only real files
-    count - a made-up lastmod is worse than none, because Google stops trusting
-    the whole sitemap once it catches one."""
-    stamps = []
-    for rel in relpaths:
-        if not rel:
+def _git_file_dates():
+    """Last commit date for every tracked file, from a single pass over the
+    history. File timestamps cannot be used: a fresh clone - which is what the
+    GitHub Actions build works from - stamps every file with the time of the
+    checkout, so mtimes would report the whole site as changed on every deploy.
+    Returns {} when git is unavailable or there is no history yet, and then
+    pages simply carry no lastmod, which is the honest answer."""
+    try:
+        out = subprocess.run(['git', 'log', '--name-only', '--format=%cs'],
+                             cwd=BASE, capture_output=True, text=True, timeout=120)
+    except Exception:
+        return {}
+    if out.returncode != 0:
+        return {}
+    dates, current = {}, None
+    for line in out.stdout.splitlines():
+        line = line.strip()
+        if not line:
             continue
-        f = BASE / rel
-        if f.exists():
-            stamps.append(f.stat().st_mtime)
-    if not stamps:
-        return None
-    return datetime.fromtimestamp(max(stamps)).strftime('%Y-%m-%d')
+        if re.fullmatch(r'\d{4}-\d{2}-\d{2}', line):
+            current = line
+        elif current:
+            dates.setdefault(line, current)  # git log is newest first
+    return dates
+
+
+GIT_DATES = {}
+
+
+def source_date(*relpaths):
+    """Date a page's source last changed, as YYYY-MM-DD, taken from the commit
+    that touched it. A made-up lastmod is worse than none: Google stops trusting
+    the whole sitemap once it catches one."""
+    stamps = [GIT_DATES[rel.replace('\\', '/')] for rel in relpaths
+              if rel and rel.replace('\\', '/') in GIT_DATES]
+    return max(stamps) if stamps else None
 
 
 def iter_all_books(data):
@@ -353,6 +375,8 @@ def build():
     # is never left running a cached copy from before the last change.
     for kind, path in (('css', BASE / 'style.css'), ('js', BASE / 'assets' / 'site.js')):
         R.ASSET_V[kind] = hashlib.md5(path.read_bytes()).hexdigest()[:8]
+
+    GIT_DATES.update(_git_file_dates())
 
     shop = store_entries(data)
     R.STORE_ACTIVE = bool(shop)

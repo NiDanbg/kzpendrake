@@ -19,6 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history: the sitemap takes each page's lastmod from the
+          # commit that last touched its source, not from file timestamps.
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
