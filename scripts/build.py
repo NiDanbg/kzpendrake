@@ -364,6 +364,45 @@ def robots_txt():
     return '\n'.join(out)
 
 
+_QUOTE_OPENERS = tuple('"\'“”„«‘’-—–')
+
+
+def pull_quote(md_text, limit=130):
+    """One line from the opening pages to set on the homepage. Fiction marks its
+    punches with a short paragraph of its own, so the first such paragraph wins:
+    40-130 characters, a finished sentence, not a line of dialogue. Failing that,
+    the first sentence of the chapter."""
+    paras = [p.strip() for p in re.split(r'\n+', md_text or '') if p.strip()]
+    paras = [p for p in paras if not p.startswith('#') and not p.isupper()]
+    plain = [re.sub(r'[*_]', '', p).strip() for p in paras]
+    for p in plain[:30]:
+        if 40 <= len(p) <= limit and not p.startswith(_QUOTE_OPENERS) and p[-1] in '.!?…':
+            return p
+    if not plain:
+        return ''
+    m = re.match(r'(.+?[.!?…])(\s|$)', plain[0])
+    first = m.group(1) if m else plain[0]
+    return first if len(first) <= limit * 1.5 else ''
+
+
+def homepage_quote(data, ui):
+    """The book quoted on the homepage: the featured books behind the front cover
+    first, then the front one, then the rest of the catalogue. The reader's own
+    edition when it has an excerpt, the English one otherwise."""
+    featured = [R.find_book_by_id(data, bid)[0] for bid in data.get('featured', [])]
+    featured = [b for b in featured if b]
+    order = featured[1:] + featured[:1] + [b for b in iter_all_books(data) if b not in featured]
+    for book in order:
+        for lang in (ui, 'en'):
+            bdata = book['i18n'].get(lang) or {}
+            if not bdata.get('excerpt'):
+                continue
+            text = pull_quote(read_text(bdata['excerpt']))
+            if text:
+                return {'book': book, 'lang': lang, 'text': text}
+    return None
+
+
 def build():
     _clean_dist()
     DIST.mkdir(parents=True, exist_ok=True)
@@ -386,8 +425,11 @@ def build():
         latest_news_html = ''
         if news[ui]:
             latest = news[ui][0]
-            latest_news_html = R.render_news_excerpt_block(ui, latest['title'], latest['excerpt'], latest['slug'])
-        body = R.render_homepage(data, ui, latest_news_html, R.render_store_band(shop, ui))
+            latest_news_html = R.render_news_excerpt_block(
+                ui, latest['title'], latest['excerpt'], latest['slug'],
+                latest.get('date_fmt', ''), latest.get('date_raw', ''))
+        body = R.render_homepage(data, ui, latest_news_html, R.render_store_band(shop, ui),
+                                 homepage_quote(data, ui))
         write_page(R.home_path(ui), R.layout(
             data, lang=ui, path=R.home_path(ui),
             title=R.site_title(data, ui),

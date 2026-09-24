@@ -5,3 +5,7 @@ __pycache__/
 # Working material, not part of the published site
 _arhiv/
 _mockups/
+
+# Local Claude Code skills, never pushed to GitHub
+.claude/
+skills-lock.json

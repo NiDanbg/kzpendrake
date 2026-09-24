@@ -1,7 +1,7 @@
 const authorData = {
     "featured": [
-        "der-wettbewerb-der-fleischfressenden-salate",
-        "das-formular-zur-rettung-der-galaxie"
+        "commander-by-mistake",
+        "der-wettbewerb-der-fleischfressenden-salate"
     ],
     "meta": {
         "bg": {
@@ -18,45 +18,65 @@ const authorData = {
     },
     "novels": [
         {
-            "id": "das-formular-zur-rettung-der-galaxie",
             "i18n": {
-                "en": {
-                    "title": "The Form for Saving the Galaxy",
-                    "genre": "Humorous Science Fiction Space Opera",
-                    "cover": "images/en/THE_FORM_FOR_SAVING_THE_GALAXY_EN_cover.webp",
-                    "synopsis": "synopsis/en/das-formular-zur-rettung-der-galaxie.txt",
-                    "excerpt": "books/en/das-formular-zur-rettung-der-galaxie.md"
-                },
                 "de": {
-                    "title": "Das Formular zur Rettung der Galaxie",
-                    "genre": "Humorous Science Fiction Space Opera",
                     "cover": "images/de/DAS_FORMULAR_ZUR_RETTUNG_DER_GALAXIE_DE_cover.webp",
+                    "excerpt": "books/de/das-formular-zur-rettung-der-galaxie.md",
+                    "genre": "Humorous Science Fiction Space Opera",
                     "synopsis": "synopsis/de/das-formular-zur-rettung-der-galaxie.txt",
-                    "excerpt": "books/de/das-formular-zur-rettung-der-galaxie.md"
+                    "title": "Das Formular zur Rettung der Galaxie"
+                },
+                "en": {
+                    "cover": "images/en/THE_FORM_FOR_SAVING_THE_GALAXY_EN_cover.webp",
+                    "excerpt": "books/en/das-formular-zur-rettung-der-galaxie.md",
+                    "genre": "Humorous Science Fiction Space Opera",
+                    "synopsis": "synopsis/en/das-formular-zur-rettung-der-galaxie.txt",
+                    "title": "The Form for Saving the Galaxy"
                 },
                 "fr": {
-                    "title": "Formulaire de sauvetage galactique",
-                    "genre": "Humorous Science Fiction Space Opera",
                     "cover": "images/fr/Formulaire_de_sauvetage_galactique_FR_cover.webp",
+                    "excerpt": "books/fr/das-formular-zur-rettung-der-galaxie.md",
+                    "genre": "Humorous Science Fiction Space Opera",
                     "synopsis": "synopsis/fr/das-formular-zur-rettung-der-galaxie.txt",
-                    "excerpt": "books/fr/das-formular-zur-rettung-der-galaxie.md"
+                    "title": "Formulaire de sauvetage galactique"
+                }
+            },
+            "id": "das-formular-zur-rettung-der-galaxie",
+            "links": [
+                {
+                    "lang": "EN",
+                    "platform": "Draft2Digital",
+                    "url": "https://books2read.com/u/3yqdZe"
+                },
+                {
+                    "lang": "DE",
+                    "platform": "Draft2Digital",
+                    "url": "https://books2read.com/u/bMkzZ5"
+                },
+                {
+                    "lang": "FR",
+                    "platform": "Draft2Digital",
+                    "url": "https://books2read.com/u/ba8Rwa"
+                }
+            ]
+        },
+        {
+            "id": "commander-by-mistake",
+            "i18n": {
+                "en": {
+                    "title": "Commander by Mistake",
+                    "genre": "Humor, Space Opera, Military Science Fiction",
+                    "cover": "images/en/COMMANDER-BY-MISTAKE-EN.webp",
+                    "published": "2026",
+                    "synopsis": "synopsis/en/commander-by-mistake.txt",
+                    "excerpt": "books/en/commander-by-mistake.md"
                 }
             },
             "links": [
                 {
-                    "platform": "Draft2Digital",
+                    "platform": "Amazon",
                     "lang": "EN",
-                    "url": "https://books2read.com/u/3yqdZe"
-                },
-                {
-                    "platform": "Draft2Digital",
-                    "lang": "DE",
-                    "url": "https://books2read.com/u/bMkzZ5"
-                },
-                {
-                    "platform": "Draft2Digital",
-                    "lang": "FR",
-                    "url": "https://books2read.com/u/ba8Rwa"
+                    "url": "https://www.amazon.com/dp/B0HJQJ383M"
                 }
             ]
         }
@@ -179,124 +199,124 @@ const authorData = {
                     "position": 1
                 },
                 {
-                    "id": "the-sentient-pigeon-syndicate",
                     "i18n": {
-                        "en": {
-                            "title": "The Sentient Pigeon Syndicate",
-                            "genre": "Humorous Cozy Fantasy Adventure",
-                            "cover": "images/en/The_Sentient_Pigeon_Syndicate-EN-EL.webp",
-                            "synopsis": "synopsis/en/the-sentient-pigeon-syndicate.txt",
-                            "excerpt": "books/en/the-sentient-pigeon-syndicate.md"
-                        },
                         "de": {
-                            "title": "Das Syndikat der fühlenden Tauben",
-                            "genre": "Eine satirische Geschichte über magische Bürokratie",
                             "cover": "images/de/Das_Syndikat_der_fuhlenden_Tauben-DE-EL.webp",
+                            "excerpt": "books/de/the-sentient-pigeon-syndicate.md",
+                            "genre": "Eine satirische Geschichte über magische Bürokratie",
                             "synopsis": "synopsis/de/the-sentient-pigeon-syndicate.txt",
-                            "excerpt": "books/de/the-sentient-pigeon-syndicate.md"
+                            "title": "Das Syndikat der fühlenden Tauben"
                         },
-                        "fr": {
-                            "title": "Le Syndicat des Pigeons Conscients",
-                            "genre": "Un conte satirique sur la bureaucratie magique",
-                            "cover": "images/fr/Le_Syndicat_des_Pigeons_Conscients-FR-EL.webp",
-                            "synopsis": "synopsis/fr/the-sentient-pigeon-syndicate.txt",
-                            "excerpt": "books/fr/the-sentient-pigeon-syndicate.md"
-                        },
-                        "it": {
-                            "title": "Il Sindacato dei Piccioni Senzienti",
-                            "genre": "Una satira sulla burocrazia magica",
-                            "cover": "images/it/Il_Sindacato_dei_Piccioni_Senzienti-IT-EL.webp",
-                            "synopsis": "synopsis/it/the-sentient-pigeon-syndicate.txt",
-                            "excerpt": "books/it/the-sentient-pigeon-syndicate.md"
-                        },
-                        "nl": {
-                            "title": "Het Syndicaat van Denkende Duiven",
-                            "genre": "Een satirisch verhaal over magische bureaucratie",
-                            "cover": "images/nl/Het_Syndicaat_van_Denkende_Duiven-NL-EL.webp",
-                            "synopsis": "synopsis/nl/the-sentient-pigeon-syndicate.txt",
-                            "excerpt": "books/nl/the-sentient-pigeon-syndicate.md"
+                        "en": {
+                            "cover": "images/en/The_Sentient_Pigeon_Syndicate-EN-EL.webp",
+                            "excerpt": "books/en/the-sentient-pigeon-syndicate.md",
+                            "genre": "Humorous Cozy Fantasy Adventure",
+                            "synopsis": "synopsis/en/the-sentient-pigeon-syndicate.txt",
+                            "title": "The Sentient Pigeon Syndicate"
                         },
                         "es": {
-                            "title": "El Sindicato de las Palomas Pensantes",
-                            "genre": "Una historia satírica de burocracia mágica",
                             "cover": "images/es/El_Sindicato_de_las_Palomas_Pensantes-ES-EL.webp",
-                            "synopsis": "synopsis/es/the-sentient-pigeon-syndicate.txt"
+                            "genre": "Una historia satírica de burocracia mágica",
+                            "synopsis": "synopsis/es/the-sentient-pigeon-syndicate.txt",
+                            "title": "El Sindicato de las Palomas Pensantes"
+                        },
+                        "fr": {
+                            "cover": "images/fr/Le_Syndicat_des_Pigeons_Conscients-FR-EL.webp",
+                            "excerpt": "books/fr/the-sentient-pigeon-syndicate.md",
+                            "genre": "Un conte satirique sur la bureaucratie magique",
+                            "synopsis": "synopsis/fr/the-sentient-pigeon-syndicate.txt",
+                            "title": "Le Syndicat des Pigeons Conscients"
+                        },
+                        "it": {
+                            "cover": "images/it/Il_Sindacato_dei_Piccioni_Senzienti-IT-EL.webp",
+                            "excerpt": "books/it/the-sentient-pigeon-syndicate.md",
+                            "genre": "Una satira sulla burocrazia magica",
+                            "synopsis": "synopsis/it/the-sentient-pigeon-syndicate.txt",
+                            "title": "Il Sindacato dei Piccioni Senzienti"
+                        },
+                        "nl": {
+                            "cover": "images/nl/Het_Syndicaat_van_Denkende_Duiven-NL-EL.webp",
+                            "excerpt": "books/nl/the-sentient-pigeon-syndicate.md",
+                            "genre": "Een satirisch verhaal over magische bureaucratie",
+                            "synopsis": "synopsis/nl/the-sentient-pigeon-syndicate.txt",
+                            "title": "Het Syndicaat van Denkende Duiven"
                         },
                         "pt": {
-                            "title": "O Sindicato dos Pombos Sencientes",
-                            "genre": "Um conto satírico sobre burocracia mágica",
                             "cover": "images/pt/O_Sindicato_dos_Pombos_Sencientes-pt-EL.webp",
-                            "synopsis": "synopsis/pt/the-sentient-pigeon-syndicate.txt"
+                            "genre": "Um conto satírico sobre burocracia mágica",
+                            "synopsis": "synopsis/pt/the-sentient-pigeon-syndicate.txt",
+                            "title": "O Sindicato dos Pombos Sencientes"
                         },
                         "se": {
-                            "title": "Det Tänkande Duvsyndikatet",
-                            "genre": "En satirisk berättelse om magisk byråkrati",
                             "cover": "images/se/Det_tankande_duvsyndikatet-SE-EL.webp",
+                            "excerpt": "books/se/the-sentient-pigeon-syndicate.md",
+                            "genre": "En satirisk berättelse om magisk byråkrati",
                             "synopsis": "synopsis/se/the-sentient-pigeon-syndicate.txt",
-                            "excerpt": "books/se/the-sentient-pigeon-syndicate.md"
+                            "title": "Det Tänkande Duvsyndikatet"
                         }
                     },
+                    "id": "the-sentient-pigeon-syndicate",
                     "links": [
                         {
-                            "platform": "Amazon",
                             "lang": "EN",
+                            "platform": "Amazon",
                             "url": "https://www.amazon.com/dp/B0GZNZRXP1"
                         },
                         {
-                            "platform": "Draft2Digital",
                             "lang": "DE",
+                            "platform": "Draft2Digital",
                             "url": "https://books2read.com/u/mYjK0Y"
                         },
                         {
-                            "platform": "Draft2Digital",
                             "lang": "NL",
+                            "platform": "Draft2Digital",
                             "url": "https://books2read.com/u/4E6aee"
                         },
                         {
-                            "platform": "Draft2Digital",
                             "lang": "FR",
+                            "platform": "Draft2Digital",
                             "url": "https://books2read.com/u/49E58p"
                         },
                         {
-                            "platform": "Draft2Digital",
                             "lang": "IT",
+                            "platform": "Draft2Digital",
                             "url": "https://books2read.com/u/4j9Z2o"
                         },
                         {
-                            "platform": "Draft2Digital",
                             "lang": "SE",
+                            "platform": "Draft2Digital",
                             "url": "https://books2read.com/u/mYjWJo"
                         }
                     ],
                     "position": 2
                 },
                 {
-                    "id": "der-wettbewerb-der-fleischfressenden-salate",
                     "i18n": {
-                        "en": {
-                            "title": "The Carnivorous Lettuce Competition",
-                            "genre": "A Cozy Comic Fantasy Mystery",
-                            "cover": "images/en/The_Carnivorous_Lettuce_Competition-EN_.webp",
-                            "synopsis": "synopsis/en/der-wettbewerb-der-fleischfressenden-salate.txt",
-                            "excerpt": "books/en/der-wettbewerb-der-fleischfressenden-salate.md"
-                        },
                         "de": {
-                            "title": "Der Wettbewerb der fleischfressenden Salate",
-                            "genre": "Ein komischer Fantasy-Krimi",
                             "cover": "images/de/DER_WETTBEWERB_DER_FLEISCHFRESSENDEN_SALATE-DE_.webp",
+                            "excerpt": "books/de/der-wettbewerb-der-fleischfressenden-salate.md",
+                            "genre": "Ein komischer Fantasy-Krimi",
                             "synopsis": "synopsis/de/der-wettbewerb-der-fleischfressenden-salate.txt",
-                            "excerpt": "books/de/der-wettbewerb-der-fleischfressenden-salate.md"
+                            "title": "Der Wettbewerb der fleischfressenden Salate"
+                        },
+                        "en": {
+                            "cover": "images/en/The_Carnivorous_Lettuce_Competition-EN_.webp",
+                            "excerpt": "books/en/der-wettbewerb-der-fleischfressenden-salate.md",
+                            "genre": "A Cozy Comic Fantasy Mystery",
+                            "synopsis": "synopsis/en/der-wettbewerb-der-fleischfressenden-salate.txt",
+                            "title": "The Carnivorous Lettuce Competition"
                         }
                     },
+                    "id": "der-wettbewerb-der-fleischfressenden-salate",
                     "links": [
                         {
-                            "platform": "Amazon",
                             "lang": "EN",
+                            "platform": "Amazon",
                             "url": "https://www.amazon.com/dp/B0H6FF3VJY"
                         },
                         {
-                            "platform": "Draft2Digital",
                             "lang": "DE",
+                            "platform": "Draft2Digital",
                             "url": "https://books2read.com/u/bxV9GJ"
                         }
                     ],

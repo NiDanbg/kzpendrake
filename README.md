@@ -2,8 +2,10 @@
 
 Statically generated author site (no client-side router, real HTML per page/language).
 
-Visual identity: cosmic art deco — navy and brass, hairline geometry, cut corners.
-The homepage hero draws a brass orrery on a canvas; no video file, no library.
+Visual identity: navy and brass, set like a book. Cormorant for what a reader reads,
+Jost for what a reader clicks, one accent colour, cut corners on buttons only.
+The homepage hero stands the featured covers inside two CSS orbits; no canvas, no library.
+The design follows the taste-skill audit (github.com/leonxlnx/taste-skill, installed locally, not in this repo).
 
 ## Local development
 
@@ -41,7 +43,7 @@ The domain comes from the `CNAME` file that the build writes into `dist/`.
 | `images/<lang>/` | covers; `images/common/` holds the portrait, retailer logos and favicons |
 | `scripts/render.py` | every HTML template — the whole visual layer lives here |
 | `style.css` | the design system: colour tokens, type scale, components |
-| `assets/site.js` | nav, search, cookie banner, contact form, scroll reveals, hero orrery |
+| `assets/site.js` | mobile menu, search, cookie banner, contact form, scroll reveals |
 
 Interface languages: English and Bulgarian. Book languages: bg, en, de, fr, it, nl, es, pt, se.
 

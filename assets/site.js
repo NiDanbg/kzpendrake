@@ -1,4 +1,4 @@
-// K.Z. Pendrake — client-side behaviour for the static site.
+// K.Z. Pendrake: client-side behaviour for the static site.
 // No router: every page is pre-rendered HTML with real URLs.
 
 (function () {
@@ -7,16 +7,6 @@
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     document.addEventListener('DOMContentLoaded', function () {
-
-        /* ── Header: solid once the hero is behind you ─────────────── */
-        var header = document.getElementById('site-header');
-        if (header) {
-            var onScroll = function () {
-                header.classList.toggle('solid', window.scrollY > 40);
-            };
-            onScroll();
-            window.addEventListener('scroll', onScroll, { passive: true });
-        }
 
         /* ── Mobile menu ───────────────────────────────────────────── */
         var hamburger = document.querySelector('.hamburger');
@@ -52,17 +42,27 @@
         if (reduceMotion || !('IntersectionObserver' in window)) {
             Array.prototype.forEach.call(revealables, function (el) { el.classList.add('in'); });
         } else {
+            var pending = Array.prototype.slice.call(revealables);
+            var reveal = function (el) {
+                el.classList.add('in');
+                io.unobserve(el);
+            };
             var io = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('in');
-                        io.unobserve(entry.target);
-                    }
+                    // Above the viewport counts too: a restored scroll position
+                    // or a fast flick jumps past blocks without ever showing them.
+                    var above = entry.boundingClientRect.bottom < 0;
+                    if (!entry.isIntersecting && !above) return;
+                    var i = pending.indexOf(entry.target);
+                    if (i === -1) return;
+                    // Everything earlier in the page is above this block, so it
+                    // has been scrolled past as well.
+                    pending.splice(0, i + 1).forEach(reveal);
                 });
             // threshold 0: an excerpt page is one very tall block, and a
             // fraction-of-the-element threshold would never be reached.
             }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
-            Array.prototype.forEach.call(revealables, function (el) { io.observe(el); });
+            pending.forEach(function (el) { io.observe(el); });
         }
 
         /* ── Book search ───────────────────────────────────────────── */
@@ -172,7 +172,6 @@
                 loadIndex().then(function () { render(input.value); });
             });
             input.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape') { closeSearch(); toggle.focus(); }
                 if (e.key === 'Enter') {
                     e.preventDefault();
                     var first = results.querySelector('.search-hit');
@@ -181,6 +180,12 @@
             });
             document.addEventListener('click', function (e) {
                 if (!searchBox.contains(e.target)) closeSearch();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && searchBox.classList.contains('open')) {
+                    closeSearch();
+                    toggle.focus();
+                }
             });
         }
 
@@ -201,13 +206,19 @@
         // Our own modal opens instantly (no provider trigger delay); Sender.net
         // is loaded on demand, only on click, and renders its embedded form
         // into the modal once ready.
+        // Each modal moves to <body> first: inside a block that is still sliding
+        // in, position:fixed would anchor to that block instead of the window.
         Array.prototype.forEach.call(document.querySelectorAll('.lead-magnet-cta'), function (btn) {
+            var banner = btn.closest('.lead-magnet-banner');
+            var modal = banner && banner.nextElementSibling;
+            if (!modal || !modal.classList.contains('lead-magnet-modal')) return;
+            document.body.appendChild(modal);
             btn.addEventListener('click', function () {
                 var accountId = btn.dataset.accountId;
-                var banner = btn.closest('.lead-magnet-banner');
-                var modal = banner && banner.nextElementSibling;
-                if (!accountId || !modal || !modal.classList.contains('lead-magnet-modal')) return;
+                if (!accountId) return;
                 modal.classList.add('open');
+                var closeBtn = modal.querySelector('.lead-magnet-modal-close');
+                if (closeBtn) closeBtn.focus();
                 var holder = modal.querySelector('[data-sender-form-id]');
                 var formId = holder && holder.dataset.senderFormId;
                 if (window.senderForms) {
@@ -238,6 +249,12 @@
             if (close) close.addEventListener('click', function () { modal.classList.remove('open'); });
             modal.addEventListener('click', function (e) {
                 if (e.target === modal) modal.classList.remove('open');
+            });
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key !== 'Escape') return;
+            Array.prototype.forEach.call(document.querySelectorAll('.lead-magnet-modal.open'), function (m) {
+                m.classList.remove('open');
             });
         });
 
@@ -283,202 +300,6 @@
             });
         }
 
-        /* ── Hero orrery ───────────────────────────────────────────── */
-        initOrrery();
     });
 
-
-    /* ═══════════════════════════════════════════════════════════════
-       The homepage hero: a brass orrery low on the frame, a field of
-       stars above it, both drifting with the pointer and the scroll.
-       Pure canvas — no video file, no library, a few kilobytes.
-       ═══════════════════════════════════════════════════════════════ */
-    function initOrrery() {
-        var cv = document.getElementById('orrery');
-        if (!cv) return;
-        var cx = cv.getContext('2d');
-        if (!cx) return;
-
-        var W = 0, H = 0, DPR = 1;
-        var stars = [], rings = [];
-        var t = 0, mx = 0, my = 0, tx = 0, ty = 0, scrollK = 0;
-        var running = true;
-
-        function build() {
-            DPR = Math.min(window.devicePixelRatio || 1, 2);
-            W = cv.clientWidth; H = cv.clientHeight;
-            if (!W || !H) return;
-            cv.width = Math.round(W * DPR);
-            cv.height = Math.round(H * DPR);
-            cx.setTransform(DPR, 0, 0, DPR, 0, 0);
-
-            var count = Math.min(Math.round(W * H / 3400), 520);
-            stars = [];
-            for (var i = 0; i < count; i++) {
-                stars.push({
-                    x: Math.random() * W,
-                    y: Math.random() * H,
-                    r: 0.3 + Math.random() * 1.25,
-                    a: 0.2 + Math.random() * 0.6,
-                    tw: Math.random() * 6.3,
-                    ts: 0.005 + Math.random() * 0.014,
-                    z: 0.3 + Math.random() * 0.7
-                });
-            }
-
-            var R = Math.max(W * 0.42, Math.min(W, H) * 0.52);
-            rings = [
-                { r: R * 0.30, sp: 0.42, n: 1, sz: 3.4, c: '#e8cf84', ecc: 0.22 },
-                { r: R * 0.48, sp: -0.27, n: 1, sz: 2.6, c: '#c9a227', ecc: 0.22 },
-                { r: R * 0.70, sp: 0.17, n: 2, sz: 2.2, c: '#c86b7a', ecc: 0.22 },
-                { r: R * 0.95, sp: -0.11, n: 1, sz: 3.0, c: '#9aa6c4', ecc: 0.22 }
-            ];
-        }
-
-        function paintBackground() {
-            var bg = cx.createRadialGradient(W * 0.5, H * 0.80, 0, W * 0.5, H * 0.80, Math.max(W, H) * 0.95);
-            bg.addColorStop(0, '#101d42');
-            bg.addColorStop(0.5, '#0a1430');
-            bg.addColorStop(1, '#050c1f');
-            cx.fillStyle = bg;
-            cx.fillRect(0, 0, W, H);
-        }
-
-        function paintStars(animated) {
-            for (var i = 0; i < stars.length; i++) {
-                var s = stars[i];
-                var a = s.a;
-                var x = s.x, y = s.y;
-                if (animated) {
-                    s.tw += s.ts;
-                    a = s.a * (0.5 + 0.5 * Math.sin(s.tw));
-                    x = s.x + tx * 22 * s.z;
-                    y = s.y + ty * 22 * s.z - scrollK * 170 * s.z;
-                    y = ((y % H) + H) % H;
-                }
-                cx.fillStyle = 'rgba(240,233,216,' + a + ')';
-                cx.beginPath();
-                cx.arc(x, y, s.r, 0, 7);
-                cx.fill();
-            }
-        }
-
-        function paintOrrery(ox, oy) {
-            cx.save();
-            cx.translate(ox, oy);
-
-            // brass rays
-            var RR = Math.min(W, H) * 0.72;
-            for (var i = 0; i < 48; i++) {
-                var a = i * (Math.PI * 2 / 48) + t * 0.02;
-                var len = RR * (0.55 + 0.45 * Math.abs(Math.sin(i * 1.7 + t * 0.5)));
-                cx.strokeStyle = 'rgba(201,162,39,' + (i % 4 ? 0.045 : 0.11) + ')';
-                cx.lineWidth = i % 4 ? 1 : 1.4;
-                cx.beginPath();
-                cx.moveTo(Math.cos(a) * RR * 0.14, Math.sin(a) * RR * 0.14 * 0.30);
-                cx.lineTo(Math.cos(a) * len, Math.sin(a) * len * 0.30);
-                cx.stroke();
-            }
-
-            // orbits and bodies
-            for (var j = 0; j < rings.length; j++) {
-                var r = rings[j];
-                cx.strokeStyle = 'rgba(201,162,39,.22)';
-                cx.lineWidth = 1;
-                cx.beginPath();
-                cx.ellipse(0, 0, r.r, r.r * r.ecc, 0, 0, 7);
-                cx.stroke();
-                for (var k = 0; k < r.n; k++) {
-                    var ang = t * r.sp + k * (Math.PI * 2 / r.n);
-                    var px = Math.cos(ang) * r.r;
-                    var py = Math.sin(ang) * r.r * r.ecc;
-                    cx.fillStyle = r.c;
-                    cx.beginPath(); cx.arc(px, py, r.sz, 0, 7); cx.fill();
-                    cx.globalAlpha = 0.20;
-                    cx.beginPath(); cx.arc(px, py, r.sz * 5, 0, 7); cx.fill();
-                    cx.globalAlpha = 1;
-                }
-            }
-
-            // the sun at the centre of the machine
-            var halo = Math.min(W, H) * 0.20;
-            var sg = cx.createRadialGradient(0, 0, 0, 0, 0, halo);
-            sg.addColorStop(0, 'rgba(232,207,132,.42)');
-            sg.addColorStop(0.35, 'rgba(201,162,39,.16)');
-            sg.addColorStop(1, 'rgba(201,162,39,0)');
-            cx.fillStyle = sg;
-            cx.beginPath(); cx.arc(0, 0, halo, 0, 7); cx.fill();
-
-            var core = Math.min(W, H) * 0.045;
-            var cg = cx.createRadialGradient(0, 0, 0, 0, 0, core);
-            cg.addColorStop(0, 'rgba(255,244,214,.92)');
-            cg.addColorStop(0.55, 'rgba(232,207,132,.42)');
-            cg.addColorStop(1, 'rgba(201,162,39,0)');
-            cx.fillStyle = cg;
-            cx.beginPath(); cx.arc(0, 0, core, 0, 7); cx.fill();
-            cx.strokeStyle = 'rgba(232,207,132,.55)';
-            cx.lineWidth = 1;
-            cx.beginPath(); cx.arc(0, 0, core, 0, 7); cx.stroke();
-
-            cx.restore();
-        }
-
-        function paintCorners() {
-            var m = 34, L = 56;
-            cx.strokeStyle = 'rgba(201,162,39,.30)';
-            cx.lineWidth = 1;
-            var pts = [[m, m, 1, 1], [W - m, m, -1, 1], [m, H - m, 1, -1], [W - m, H - m, -1, -1]];
-            for (var i = 0; i < pts.length; i++) {
-                var x = pts[i][0], y = pts[i][1], sx = pts[i][2], sy = pts[i][3];
-                cx.beginPath();
-                cx.moveTo(x + sx * L, y); cx.lineTo(x, y); cx.lineTo(x, y + sy * L);
-                cx.stroke();
-                cx.beginPath();
-                cx.moveTo(x + sx * (L * 0.55), y + sy * 10);
-                cx.lineTo(x + sx * 10, y + sy * 10);
-                cx.lineTo(x + sx * 10, y + sy * (L * 0.55));
-                cx.stroke();
-            }
-        }
-
-        function frame() {
-            if (!running) return;
-            t += 0.006;
-            tx += (mx - tx) * 0.04;
-            ty += (my - ty) * 0.04;
-            cx.clearRect(0, 0, W, H);
-            paintBackground();
-            paintStars(true);
-            paintOrrery(W * 0.5 + tx * 26, H * 0.80 + ty * 18 - scrollK * 110);
-            paintCorners();
-            requestAnimationFrame(frame);
-        }
-
-        function paintStill() {
-            cx.clearRect(0, 0, W, H);
-            paintBackground();
-            paintStars(false);
-            paintOrrery(W * 0.5, H * 0.80);
-            paintCorners();
-        }
-
-        window.addEventListener('resize', function () {
-            build();
-            if (reduceMotion) paintStill();
-        });
-        window.addEventListener('pointermove', function (e) {
-            mx = (e.clientX / window.innerWidth - 0.5) * 2;
-            my = (e.clientY / window.innerHeight - 0.5) * 2;
-        }, { passive: true });
-        window.addEventListener('scroll', function () {
-            scrollK = Math.min(window.scrollY / window.innerHeight, 1);
-            // Once the hero is off screen there is nothing to animate.
-            var wasRunning = running;
-            running = !reduceMotion && window.scrollY < window.innerHeight * 1.2;
-            if (running && !wasRunning) requestAnimationFrame(frame);
-        }, { passive: true });
-
-        build();
-        if (reduceMotion) { running = false; paintStill(); } else { frame(); }
-    }
 })();
