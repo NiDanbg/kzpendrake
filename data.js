@@ -70,6 +70,46 @@ const authorData = {
                     "published": "2026",
                     "synopsis": "synopsis/en/commander-by-mistake.txt",
                     "excerpt": "books/en/commander-by-mistake.md"
+                },
+                "de": {
+                    "title": "Oberbefehlshaber aus Versehen",
+                    "genre": "Humor, Space Opera, Military Science Fiction",
+                    "cover": "images/de/Oberbefehlshaber_aus_Versehen-DE.webp",
+                    "publisher": "2026",
+                    "synopsis": "synopsis/de/commander-by-mistake.txt",
+                    "excerpt": "books/de/commander-by-mistake.md"
+                },
+                "fr": {
+                    "title": "Commandant suprême par erreur",
+                    "genre": "Humor, Space Opera, Military Science Fiction",
+                    "cover": "images/fr/Commandant_supreme_par_erreur-FR.webp",
+                    "published": "2026",
+                    "synopsis": "synopsis/fr/commander-by-mistake.txt",
+                    "excerpt": "books/fr/commander-by-mistake.md"
+                },
+                "it": {
+                    "title": "Comandante Supremo per errore",
+                    "genre": "Humor, Space Opera, Military Science Fiction",
+                    "cover": "images/it/Comandante_Supremo_per_errore-IT.webp",
+                    "published": "2026",
+                    "synopsis": "synopsis/it/commander-by-mistake.txt",
+                    "excerpt": "books/it/commander-by-mistake.md"
+                },
+                "nl": {
+                    "title": "Opperbevelhebber bij vergissing",
+                    "genre": "Humor, Space Opera, Military Science Fiction",
+                    "cover": "images/nl/Opperbevelhebber_bij_vergissing-NL.webp",
+                    "published": "2026",
+                    "synopsis": "synopsis/nl/commander-by-mistake.txt",
+                    "excerpt": "books/nl/commander-by-mistake.md"
+                },
+                "se": {
+                    "title": "Överbefälhavare av misstag",
+                    "genre": "Humor, Space Opera, Military Science Fiction",
+                    "cover": "images/se/Overbefalhavare_av_misstag-SE.webp",
+                    "published": "2026",
+                    "synopsis": "synopsis/se/commander-by-mistake.txt",
+                    "excerpt": "books/se/commander-by-mistake.md"
                 }
             },
             "links": [
@@ -77,6 +117,36 @@ const authorData = {
                     "platform": "Amazon",
                     "lang": "EN",
                     "url": "https://www.amazon.com/dp/B0HJQJ383M"
+                },
+                {
+                    "platform": "Draft2Digital",
+                    "lang": "IT",
+                    "url": "https://books2read.com/u/mdrAYW"
+                },
+                {
+                    "platform": "Draft2Digital",
+                    "lang": "EN",
+                    "url": "https://books2read.com/u/4jlKyl"
+                },
+                {
+                    "platform": "Draft2Digital",
+                    "lang": "DE",
+                    "url": "https://books2read.com/u/m2pvgj"
+                },
+                {
+                    "platform": "Draft2Digital",
+                    "lang": "FR",
+                    "url": "https://books2read.com/u/mvaZ76"
+                },
+                {
+                    "platform": "Draft2Digital",
+                    "lang": "NL",
+                    "url": "https://books2read.com/u/mva5qJ"
+                },
+                {
+                    "platform": "Draft2Digital",
+                    "lang": "SE",
+                    "url": "https://books2read.com/u/4Xzed9"
                 }
             ]
         }
@@ -321,6 +391,40 @@ const authorData = {
                         }
                     ],
                     "position": 3
+                },
+                {
+                    "id": "the-postal-aether-conspiracy",
+                    "i18n": {
+                        "en": {
+                            "title": "The Postal Aether Conspiracy",
+                            "genre": "A Funny Fantasy of Magic and Paperwork",
+                            "cover": "images/en/The-Postal-Aether-Conspiracy-EN.webp",
+                            "published": "2026",
+                            "synopsis": "synopsis/en/the-postal-aether-conspiracy.txt",
+                            "excerpt": "books/en/the-postal-aether-conspiracy.md"
+                        },
+                        "de": {
+                            "title": "Die Verschwörung im Post-Äther",
+                            "genre": "Humorvolle Fantasy voller Magie und Papierkram",
+                            "cover": "images/de/Die_Verschworung_im_Post-Ather-DE.webp",
+                            "published": "2026",
+                            "synopsis": "synopsis/de/the-postal-aether-conspiracy.txt",
+                            "excerpt": "books/de/the-postal-aether-conspiracy.md"
+                        }
+                    },
+                    "links": [
+                        {
+                            "platform": "Draft2Digital",
+                            "lang": "EN",
+                            "url": "https://books2read.com/u/477oag"
+                        },
+                        {
+                            "platform": "Draft2Digital",
+                            "lang": "DE",
+                            "url": "https://books2read.com/u/4NKKN6"
+                        }
+                    ],
+                    "position": 4
                 }
             ],
             "i18n": {
