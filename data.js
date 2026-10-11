@@ -1,7 +1,7 @@
 const authorData = {
     "featured": [
         "commander-by-mistake",
-        "der-wettbewerb-der-fleischfressenden-salate"
+        "the-postal-aether-conspiracy"
     ],
     "meta": {
         "bg": {
