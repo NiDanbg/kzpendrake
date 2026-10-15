@@ -20,133 +20,134 @@ const authorData = {
         {
             "i18n": {
                 "de": {
-                    "cover": "images/de/DAS_FORMULAR_ZUR_RETTUNG_DER_GALAXIE_DE_cover.webp",
-                    "excerpt": "books/de/das-formular-zur-rettung-der-galaxie.md",
-                    "genre": "Humorous Science Fiction Space Opera",
-                    "synopsis": "synopsis/de/das-formular-zur-rettung-der-galaxie.txt",
-                    "title": "Das Formular zur Rettung der Galaxie"
+                    "cover": "images/de/Oberbefehlshaber_aus_Versehen-DE.webp",
+                    "excerpt": "books/de/commander-by-mistake.md",
+                    "genre": "Humor, Space Opera, Military Science Fiction",
+                    "publisher": "2026",
+                    "synopsis": "synopsis/de/commander-by-mistake.txt",
+                    "title": "Oberbefehlshaber aus Versehen"
                 },
                 "en": {
-                    "cover": "images/en/THE_FORM_FOR_SAVING_THE_GALAXY_EN_cover.webp",
-                    "excerpt": "books/en/das-formular-zur-rettung-der-galaxie.md",
-                    "genre": "Humorous Science Fiction Space Opera",
-                    "synopsis": "synopsis/en/das-formular-zur-rettung-der-galaxie.txt",
-                    "title": "The Form for Saving the Galaxy"
+                    "cover": "images/en/COMMANDER-BY-MISTAKE-EN.webp",
+                    "excerpt": "books/en/commander-by-mistake.md",
+                    "genre": "Humor, Space Opera, Military Science Fiction",
+                    "published": "2026",
+                    "synopsis": "synopsis/en/commander-by-mistake.txt",
+                    "title": "Commander by Mistake"
                 },
                 "fr": {
-                    "cover": "images/fr/Formulaire_de_sauvetage_galactique_FR_cover.webp",
-                    "excerpt": "books/fr/das-formular-zur-rettung-der-galaxie.md",
-                    "genre": "Humorous Science Fiction Space Opera",
-                    "synopsis": "synopsis/fr/das-formular-zur-rettung-der-galaxie.txt",
-                    "title": "Formulaire de sauvetage galactique"
+                    "cover": "images/fr/Commandant_supreme_par_erreur-FR.webp",
+                    "excerpt": "books/fr/commander-by-mistake.md",
+                    "genre": "Humor, Space Opera, Military Science Fiction",
+                    "published": "2026",
+                    "synopsis": "synopsis/fr/commander-by-mistake.txt",
+                    "title": "Commandant suprême par erreur"
+                },
+                "it": {
+                    "cover": "images/it/Comandante_Supremo_per_errore-IT.webp",
+                    "excerpt": "books/it/commander-by-mistake.md",
+                    "genre": "Humor, Space Opera, Military Science Fiction",
+                    "published": "2026",
+                    "synopsis": "synopsis/it/commander-by-mistake.txt",
+                    "title": "Comandante Supremo per errore"
+                },
+                "nl": {
+                    "cover": "images/nl/Opperbevelhebber_bij_vergissing-NL.webp",
+                    "excerpt": "books/nl/commander-by-mistake.md",
+                    "genre": "Humor, Space Opera, Military Science Fiction",
+                    "published": "2026",
+                    "synopsis": "synopsis/nl/commander-by-mistake.txt",
+                    "title": "Opperbevelhebber bij vergissing"
+                },
+                "se": {
+                    "cover": "images/se/Overbefalhavare_av_misstag-SE.webp",
+                    "excerpt": "books/se/commander-by-mistake.md",
+                    "genre": "Humor, Space Opera, Military Science Fiction",
+                    "published": "2026",
+                    "synopsis": "synopsis/se/commander-by-mistake.txt",
+                    "title": "Överbefälhavare av misstag"
                 }
             },
-            "id": "das-formular-zur-rettung-der-galaxie",
+            "id": "commander-by-mistake",
             "links": [
                 {
                     "lang": "EN",
+                    "platform": "Amazon",
+                    "url": "https://www.amazon.com/dp/B0HJQJ383M"
+                },
+                {
+                    "lang": "IT",
                     "platform": "Draft2Digital",
-                    "url": "https://books2read.com/u/3yqdZe"
+                    "url": "https://books2read.com/u/mdrAYW"
+                },
+                {
+                    "lang": "EN",
+                    "platform": "Draft2Digital",
+                    "url": "https://books2read.com/u/4jlKyl"
                 },
                 {
                     "lang": "DE",
                     "platform": "Draft2Digital",
-                    "url": "https://books2read.com/u/bMkzZ5"
+                    "url": "https://books2read.com/u/m2pvgj"
                 },
                 {
                     "lang": "FR",
                     "platform": "Draft2Digital",
-                    "url": "https://books2read.com/u/ba8Rwa"
+                    "url": "https://books2read.com/u/mvaZ76"
+                },
+                {
+                    "lang": "NL",
+                    "platform": "Draft2Digital",
+                    "url": "https://books2read.com/u/mva5qJ"
+                },
+                {
+                    "lang": "SE",
+                    "platform": "Draft2Digital",
+                    "url": "https://books2read.com/u/4Xzed9"
                 }
             ]
         },
         {
-            "id": "commander-by-mistake",
+            "id": "das-formular-zur-rettung-der-galaxie",
             "i18n": {
                 "en": {
-                    "title": "Commander by Mistake",
-                    "genre": "Humor, Space Opera, Military Science Fiction",
-                    "cover": "images/en/COMMANDER-BY-MISTAKE-EN.webp",
+                    "title": "The Form for Saving the Galaxy",
+                    "genre": "Humorous Science Fiction Space Opera",
+                    "cover": "images/en/THE_FORM_FOR_Cover.webp",
                     "published": "2026",
-                    "synopsis": "synopsis/en/commander-by-mistake.txt",
-                    "excerpt": "books/en/commander-by-mistake.md"
+                    "synopsis": "synopsis/en/das-formular-zur-rettung-der-galaxie.txt",
+                    "excerpt": "books/en/das-formular-zur-rettung-der-galaxie.md"
                 },
                 "de": {
-                    "title": "Oberbefehlshaber aus Versehen",
-                    "genre": "Humor, Space Opera, Military Science Fiction",
-                    "cover": "images/de/Oberbefehlshaber_aus_Versehen-DE.webp",
-                    "publisher": "2026",
-                    "synopsis": "synopsis/de/commander-by-mistake.txt",
-                    "excerpt": "books/de/commander-by-mistake.md"
+                    "title": "Das Formular zur Rettung der Galaxie",
+                    "genre": "Humorous Science Fiction Space Opera",
+                    "cover": "images/de/DAS_FORMULAR_ZUR_RETTUNG-DE.webp",
+                    "synopsis": "synopsis/de/das-formular-zur-rettung-der-galaxie.txt",
+                    "excerpt": "books/de/das-formular-zur-rettung-der-galaxie.md"
                 },
                 "fr": {
-                    "title": "Commandant suprême par erreur",
-                    "genre": "Humor, Space Opera, Military Science Fiction",
-                    "cover": "images/fr/Commandant_supreme_par_erreur-FR.webp",
-                    "published": "2026",
-                    "synopsis": "synopsis/fr/commander-by-mistake.txt",
-                    "excerpt": "books/fr/commander-by-mistake.md"
-                },
-                "it": {
-                    "title": "Comandante Supremo per errore",
-                    "genre": "Humor, Space Opera, Military Science Fiction",
-                    "cover": "images/it/Comandante_Supremo_per_errore-IT.webp",
-                    "published": "2026",
-                    "synopsis": "synopsis/it/commander-by-mistake.txt",
-                    "excerpt": "books/it/commander-by-mistake.md"
-                },
-                "nl": {
-                    "title": "Opperbevelhebber bij vergissing",
-                    "genre": "Humor, Space Opera, Military Science Fiction",
-                    "cover": "images/nl/Opperbevelhebber_bij_vergissing-NL.webp",
-                    "published": "2026",
-                    "synopsis": "synopsis/nl/commander-by-mistake.txt",
-                    "excerpt": "books/nl/commander-by-mistake.md"
-                },
-                "se": {
-                    "title": "Överbefälhavare av misstag",
-                    "genre": "Humor, Space Opera, Military Science Fiction",
-                    "cover": "images/se/Overbefalhavare_av_misstag-SE.webp",
-                    "published": "2026",
-                    "synopsis": "synopsis/se/commander-by-mistake.txt",
-                    "excerpt": "books/se/commander-by-mistake.md"
+                    "title": "Formulaire de sauvetage galactique",
+                    "genre": "Humorous Science Fiction Space Opera",
+                    "cover": "images/fr/Formulaire_de_sauvetage-FR.webp",
+                    "synopsis": "synopsis/fr/das-formular-zur-rettung-der-galaxie.txt",
+                    "excerpt": "books/fr/das-formular-zur-rettung-der-galaxie.md"
                 }
             },
             "links": [
                 {
-                    "platform": "Amazon",
-                    "lang": "EN",
-                    "url": "https://www.amazon.com/dp/B0HJQJ383M"
-                },
-                {
-                    "platform": "Draft2Digital",
-                    "lang": "IT",
-                    "url": "https://books2read.com/u/mdrAYW"
-                },
-                {
                     "platform": "Draft2Digital",
                     "lang": "EN",
-                    "url": "https://books2read.com/u/4jlKyl"
+                    "url": "https://books2read.com/u/3yqdZe"
                 },
                 {
                     "platform": "Draft2Digital",
                     "lang": "DE",
-                    "url": "https://books2read.com/u/m2pvgj"
+                    "url": "https://books2read.com/u/bMkzZ5"
                 },
                 {
                     "platform": "Draft2Digital",
                     "lang": "FR",
-                    "url": "https://books2read.com/u/mvaZ76"
-                },
-                {
-                    "platform": "Draft2Digital",
-                    "lang": "NL",
-                    "url": "https://books2read.com/u/mva5qJ"
-                },
-                {
-                    "platform": "Draft2Digital",
-                    "lang": "SE",
-                    "url": "https://books2read.com/u/4Xzed9"
+                    "url": "https://books2read.com/u/ba8Rwa"
                 }
             ]
         }
@@ -393,34 +394,34 @@ const authorData = {
                     "position": 3
                 },
                 {
-                    "id": "the-postal-aether-conspiracy",
                     "i18n": {
-                        "en": {
-                            "title": "The Postal Aether Conspiracy",
-                            "genre": "A Funny Fantasy of Magic and Paperwork",
-                            "cover": "images/en/The-Postal-Aether-Conspiracy-EN.webp",
-                            "published": "2026",
-                            "synopsis": "synopsis/en/the-postal-aether-conspiracy.txt",
-                            "excerpt": "books/en/the-postal-aether-conspiracy.md"
-                        },
                         "de": {
-                            "title": "Die Verschwörung im Post-Äther",
-                            "genre": "Humorvolle Fantasy voller Magie und Papierkram",
                             "cover": "images/de/Die_Verschworung_im_Post-Ather-DE.webp",
+                            "excerpt": "books/de/the-postal-aether-conspiracy.md",
+                            "genre": "Humorvolle Fantasy voller Magie und Papierkram",
                             "published": "2026",
                             "synopsis": "synopsis/de/the-postal-aether-conspiracy.txt",
-                            "excerpt": "books/de/the-postal-aether-conspiracy.md"
+                            "title": "Die Verschwörung im Post-Äther"
+                        },
+                        "en": {
+                            "cover": "images/en/The-Postal-Aether-Conspiracy-EN.webp",
+                            "excerpt": "books/en/the-postal-aether-conspiracy.md",
+                            "genre": "A Funny Fantasy of Magic and Paperwork",
+                            "published": "2026",
+                            "synopsis": "synopsis/en/the-postal-aether-conspiracy.txt",
+                            "title": "The Postal Aether Conspiracy"
                         }
                     },
+                    "id": "the-postal-aether-conspiracy",
                     "links": [
                         {
-                            "platform": "Draft2Digital",
                             "lang": "EN",
+                            "platform": "Draft2Digital",
                             "url": "https://books2read.com/u/477oag"
                         },
                         {
-                            "platform": "Draft2Digital",
                             "lang": "DE",
+                            "platform": "Draft2Digital",
                             "url": "https://books2read.com/u/4NKKN6"
                         }
                     ],
