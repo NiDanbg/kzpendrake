@@ -15,16 +15,10 @@ python scripts/build.py                     # generates dist/
 python -m http.server 8070 --directory dist # http://localhost:8070
 ```
 
-Or run `start.bat`, which builds, serves on 8070 and opens the admin panel on 8080.
 
 ## Editing content
 
-```
-python admin_server.py        # http://localhost:8080/admin
-```
-
-Edits go straight to `data.js` / `synopsis/` / `books/` / `news/` / `images/`. Use the admin panel's
-**Build** tab to regenerate `dist/` for local preview, and **Publish** to commit and push.
+Content is edited with a local admin panel that is kept only on the author's computer, outside this repository.
 
 ## Deployment
 

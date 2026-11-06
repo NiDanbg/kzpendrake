@@ -9,3 +9,8 @@ _mockups/
 # Local Claude Code skills, never pushed to GitHub
 .claude/
 skills-lock.json
+
+# The admin panel runs only on the local computer and is never pushed
+admin/
+admin_server.py
+start.bat
